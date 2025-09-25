@@ -20,7 +20,6 @@ jobs:
   sync-content-schedule:
     name: Sync Content Schedule
     runs-on: ubuntu-latest
-    if: contains(github.event.head_commit.modified, 'agroverse_schedule_till_easter.csv') || contains(github.event.head_commit.modified, 'sync_content_schedule.py') || github.event_name == 'pull_request'
     
     steps:
     - name: Checkout code
@@ -64,7 +63,6 @@ jobs:
   sync-hashtags:
     name: Sync Hashtags
     runs-on: ubuntu-latest
-    if: contains(github.event.head_commit.modified, 'instagram_hashtags.csv') || contains(github.event.head_commit.modified, 'sync_hashtags.py') || github.event_name == 'pull_request'
     
     steps:
     - name: Checkout code
