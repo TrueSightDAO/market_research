@@ -62,3 +62,6 @@ logs/
 
 # GitHub secret preparation output
 github_secret_credentials.txt
+
+# Feedback processing files
+community_feedback.csv
