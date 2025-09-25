@@ -1,0 +1,477 @@
+Hashtag,Type,Usage Category,Notes
+#cacao,General,Core Cacao & Farming,Core Set
+#cação,General,Core Cacao & Farming,Core Set
+#cacaobeans,General,Core Cacao & Farming,Core Set
+#cacaofarm,Targeted,Core Cacao & Farming,Core Set
+#cacaotree,Targeted,Core Cacao & Farming,Core Set
+#cacaopod,Targeted,Core Cacao & Farming,Core Set
+#beantobar,General,Quality & Origin,Core Set
+#beantobarchocolate,General,Quality & Origin,Core Set
+#cacaocriollo,Targeted,Quality & Origin,Core Set
+#cacaodecalidad,Targeted,Quality & Origin,Core Set
+#cacaofino,Targeted,Quality & Origin,Core Set
+#cacaofinodearoma,Targeted,Quality & Origin,Core Set
+#singleorigin,General,Quality & Origin,Core Set
+#singleoriginchocolate,General,Quality & Origin,Core Set
+#cacaonatural,Targeted,Natural/Organic & Pure,Core Set
+#cacaoorganico,Targeted,Natural/Organic & Pure,Core Set
+#cacaoorgánico,Targeted,Natural/Organic & Pure,Core Set
+#cacaopuro,Targeted,Natural/Organic & Pure,Core Set
+#cacaoceremonies,Targeted,Ceremonies Rituals & Healing,Core Set
+#cacaoceremony,Targeted,Ceremonies Rituals & Healing,Core Set
+#cacaohealing,Targeted,Ceremonies Rituals & Healing,Core Set
+#cacaomedicina,Targeted,Ceremonies Rituals & Healing,Core Set
+#cacaoritual,Targeted,Ceremonies Rituals & Healing,Core Set
+#cacaowisdom,Targeted,Ceremonies Rituals & Healing,Core Set
+#cacaozeremonie,Targeted,Ceremonies Rituals & Healing,Core Set
+#cacaozeremonien,Targeted,Ceremonies Rituals & Healing,Core Set
+#cacaolove,General,Community & Lifestyle,Core Set
+#cacaolovers,General,Community & Lifestyle,Core Set
+#cacaoworkshop,Targeted,Community & Lifestyle,Core Set
+#cacaodrink,Targeted,Products & Uses,Core Set
+#cacaofruit,Targeted,Products & Uses,Core Set
+#cacaojuice,Targeted,Products & Uses,Core Set
+#cacaonibs,General,Products & Uses,Core Set
+#cacaopowder,General,Products & Uses,Core Set
+#cacaotea,Targeted,Products & Uses,Core Set
+#chocolate,General,General Chocolate,High Frequency
+#craftchocolate,General,Quality & Origin,High Frequency
+#artisanchocolate,General,Quality & Origin,High Frequency
+#darkchocolate,General,Products & Uses,High Frequency
+#beantobarchocolatemaker,Targeted,Quality & Origin,High Frequency
+#chocolover,General,Community & Lifestyle,High Frequency
+#chocolatelover,General,Community & Lifestyle,High Frequency
+#chocolatelovers,General,Community & Lifestyle,High Frequency
+#chocolatemaker,General,Community & Lifestyle,High Frequency
+#craftchocolatemaker,General,Quality & Origin,High Frequency
+#cocoa,General,Core Cacao & Farming,High Frequency
+#cocoabeans,General,Core Cacao & Farming,High Frequency
+#chocolatebar,General,Products & Uses,Medium Frequency
+#chocolatebars,General,Products & Uses,Medium Frequency
+#whitechocolate,General,Products & Uses,Medium Frequency
+#milkchocolate,General,Products & Uses,Medium Frequency
+#hotchocolate,General,Products & Uses,Medium Frequency
+#drinkingchocolate,Targeted,Products & Uses,Medium Frequency
+#ceremonialcacao,Targeted,Ceremonies Rituals & Healing,Medium Frequency
+#finechocolate,General,Quality & Origin,Medium Frequency
+#specialtychocolate,General,Quality & Origin,Medium Frequency
+#singleoriginchocolate,General,Quality & Origin,Medium Frequency
+#bean2bar,General,Quality & Origin,Medium Frequency
+#womeninchocolate,Targeted,Community & Lifestyle,Medium Frequency
+#chocolateeducation,Targeted,Community & Lifestyle,Medium Frequency
+#chocolatetasting,Targeted,Community & Lifestyle,Medium Frequency
+#chocolatecourses,Targeted,Community & Lifestyle,Medium Frequency
+#bakingchocolate,Targeted,Products & Uses,Medium Frequency
+#beantobarbaking,Targeted,Products & Uses,Medium Frequency
+#smallbatch,General,Quality & Origin,Medium Frequency
+#slowbatchchocolate,Targeted,Quality & Origin,Medium Frequency
+#vegan,General,Natural/Organic & Pure,Medium Frequency
+#plantbasedchocolate,Targeted,Natural/Organic & Pure,Medium Frequency
+#chocolatebonbon,General,Products & Uses,Medium Frequency
+#bonbons,General,Products & Uses,Medium Frequency
+#truffles,General,Products & Uses,Medium Frequency
+#chocolatier,General,Community & Lifestyle,Medium Frequency
+#homemadechocolates,General,Products & Uses,Medium Frequency
+#handmadechocolates,General,Products & Uses,Medium Frequency
+#cocoabutter,General,Products & Uses,Medium Frequency
+#saltedcaramel,General,Products & Uses,Medium Frequency
+#artisanchocolates,General,Quality & Origin,Medium Frequency
+#makingchocolate,General,Community & Lifestyle,Medium Frequency
+#howtomakechocolate,Targeted,Community & Lifestyle,Medium Frequency
+#chocolateart,General,Community & Lifestyle,Medium Frequency
+#chocolatemousse,General,Products & Uses,Medium Frequency
+#chocolatechunk,General,Products & Uses,Medium Frequency
+#blondies,General,Products & Uses,Medium Frequency
+#chocolateforbreakfast,Targeted,Community & Lifestyle,Medium Frequency
+#chocolateforlunch,Targeted,Community & Lifestyle,Medium Frequency
+#chocoholics,General,Community & Lifestyle,Medium Frequency
+#familybaking,General,Community & Lifestyle,Medium Frequency
+#bakinglove,General,Community & Lifestyle,Medium Frequency
+#beantobake,Targeted,Products & Uses,Medium Frequency
+#bakerlife,General,Community & Lifestyle,Medium Frequency
+#shopsmall,General,Community & Lifestyle,Medium Frequency
+#supportsmallbusiness,General,Community & Lifestyle,Medium Frequency
+#supportlocalmakers,General,Community & Lifestyle,Medium Frequency
+#shoplocal,General,Community & Lifestyle,Medium Frequency
+#supportblackownedbusinesses,General,Community & Lifestyle,Medium Frequency
+#supportcacaofarmers,Targeted,Core Cacao & Farming,Medium Frequency
+#cacaofarmers,Targeted,Core Cacao & Farming,Medium Frequency
+#cocoafarmers,Targeted,Core Cacao & Farming,Medium Frequency
+#blackchocolatemakers,Targeted,Community & Lifestyle,Medium Frequency
+#chocolateisblackhistory,Targeted,Community & Lifestyle,Medium Frequency
+#makeitahabitnotafavor,Targeted,Community & Lifestyle,Medium Frequency
+#wildcacao,Targeted,Core Cacao & Farming,Medium Frequency
+#100percentchocolate,Targeted,Products & Uses,Medium Frequency
+#sustainablecacao,Targeted,Natural/Organic & Pure,Medium Frequency
+#sustainablechocolate,Targeted,Natural/Organic & Pure,Medium Frequency
+#ethicalchocolate,Targeted,Natural/Organic & Pure,Medium Frequency
+#directtrade,General,Quality & Origin,Medium Frequency
+#directtradechocolate,Targeted,Quality & Origin,Medium Frequency
+#regenerativecacao,Targeted,Natural/Organic & Pure,Medium Frequency
+#birdfriendly,Targeted,Natural/Organic & Pure,Medium Frequency
+#biodiversitymatters,Targeted,Natural/Organic & Pure,Medium Frequency
+#conservation,General,Natural/Organic & Pure,Medium Frequency
+#migratorybirds,General,Natural/Organic & Pure,Medium Frequency
+#biodiversity,General,Natural/Organic & Pure,Medium Frequency
+#climateaction,General,Natural/Organic & Pure,Medium Frequency
+#solar,General,Natural/Organic & Pure,Medium Frequency
+#solar,General,Natural/Organic & Pure,Medium Frequency
+#ecofriendly,General,Natural/Organic & Pure,Medium Frequency
+#greenenergy,General,Natural/Organic & Pure,Medium Frequency
+#sustainablefoodsystems,General,Natural/Organic & Pure,Medium Frequency
+#organic,General,Natural/Organic & Pure,Medium Frequency
+#sustainable,General,Natural/Organic & Pure,Medium Frequency
+#agroforestry,General,Core Cacao & Farming,Medium Frequency
+#regenerative,General,Natural/Organic & Pure,Medium Frequency
+#farming,General,Core Cacao & Farming,Medium Frequency
+#farmlife,General,Core Cacao & Farming,Medium Frequency
+#agriculture,General,Core Cacao & Farming,Medium Frequency
+#cacaotree,Targeted,Core Cacao & Farming,Medium Frequency
+#harvest,General,Core Cacao & Farming,Medium Frequency
+#fermentation,General,Core Cacao & Farming,Medium Frequency
+#flavordevelopment,Targeted,Core Cacao & Farming,Medium Frequency
+#roastingcacao,Targeted,Core Cacao & Farming,Medium Frequency
+#cacaoroaster,Targeted,Core Cacao & Farming,Medium Frequency
+#coffeeroaster,General,Core Cacao & Farming,Medium Frequency
+#chocolatefactory,General,Community & Lifestyle,Medium Frequency
+#chocolatebars,General,Products & Uses,Medium Frequency
+#originchocolate,Targeted,Quality & Origin,Medium Frequency
+#cacaotraceability,Targeted,Quality & Origin,Medium Frequency
+#cacaoconnoisseur,Targeted,Community & Lifestyle,Medium Frequency
+#cacaoquality,Targeted,Quality & Origin,Medium Frequency
+#sensoryevaluation,Targeted,Quality & Origin,Medium Frequency
+#tastematters,General,Quality & Origin,Medium Frequency
+#knowyourchocolate,Targeted,Community & Lifestyle,Medium Frequency
+#chocolategifts,General,Products & Uses,Medium Frequency
+#booksandchocolate,Targeted,Community & Lifestyle,Medium Frequency
+#tastejourney,Targeted,Community & Lifestyle,Medium Frequency
+#travelwithoutmoving,Targeted,Community & Lifestyle,Medium Frequency
+#curiosity,General,Community & Lifestyle,Medium Frequency
+#bookclub,General,Community & Lifestyle,Medium Frequency
+#bookstagram,General,Community & Lifestyle,Medium Frequency
+#foodtour,General,Community & Lifestyle,Medium Frequency
+#foodie,General,Community & Lifestyle,Medium Frequency
+#foodstagram,General,Community & Lifestyle,Medium Frequency
+#tasteeducation,Targeted,Community & Lifestyle,Medium Frequency
+#chocolatefriends,General,Community & Lifestyle,Medium Frequency
+#sensorytraining,Targeted,Community & Lifestyle,Medium Frequency
+#chocolatereels,General,Community & Lifestyle,Medium Frequency
+#relatablehumor,General,Community & Lifestyle,Medium Frequency
+#funnyreels,General,Community & Lifestyle,Medium Frequency
+#kidswisdom,General,Community & Lifestyle,Medium Frequency
+#chocolatecommunity,General,Community & Lifestyle,Medium Frequency
+#chocolatefestival,General,Community & Lifestyle,Medium Frequency
+#nwchocolatefestival,Targeted,Community & Lifestyle,Medium Frequency
+#northwestchocolatefestival,Targeted,Community & Lifestyle,Medium Frequency
+#chocoa2025,Targeted,Community & Lifestyle,Medium Frequency
+#europeanmarketsacademy,Targeted,Community & Lifestyle,Medium Frequency
+#cocoaindustry,General,Community & Lifestyle,Medium Frequency
+#sustainability,General,Natural/Organic & Pure,Medium Frequency
+#eurregulations,Targeted,Community & Lifestyle,Medium Frequency
+#cocoanetworking,Targeted,Community & Lifestyle,Medium Frequency
+#futureofcocoa,Targeted,Community & Lifestyle,Medium Frequency
+#amsterdamevents,Targeted,Community & Lifestyle,Medium Frequency
+#chocolatemakers,General,Community & Lifestyle,Medium Frequency
+#amsterdamchocolatefestival,Targeted,Community & Lifestyle,Medium Frequency
+#chocoa4business,Targeted,Community & Lifestyle,Medium Frequency
+#matchmaking,General,Community & Lifestyle,Medium Frequency
+#commodityjustice,Targeted,Community & Lifestyle,Medium Frequency
+#equity,General,Community & Lifestyle,Medium Frequency
+#liberation,General,Community & Lifestyle,Medium Frequency
+#reparations,General,Community & Lifestyle,Medium Frequency
+#foodisculture,General,Community & Lifestyle,Medium Frequency
+#brooklynevents,Targeted,Community & Lifestyle,Medium Frequency
+#publichistory,General,Community & Lifestyle,Medium Frequency
+#research,General,Community & Lifestyle,Medium Frequency
+#openaccess,General,Community & Lifestyle,Medium Frequency
+#blackhistory,General,Community & Lifestyle,Medium Frequency
+#cacaosummit2025,Targeted,Community & Lifestyle,Medium Frequency
+#chocolatecommunity,General,Community & Lifestyle,Medium Frequency
+#cacaoquality,Targeted,Quality & Origin,Medium Frequency
+#sustainablecocoa,Targeted,Natural/Organic & Pure,Medium Frequency
+#chocolateresearch,Targeted,Community & Lifestyle,Medium Frequency
+#iccr,Targeted,Community & Lifestyle,Medium Frequency
+#istc,Targeted,Community & Lifestyle,Medium Frequency
+#kadkokoa,Targeted,Community & Lifestyle,Medium Frequency
+#cacaofarmers,Targeted,Core Cacao & Farming,Medium Frequency
+#chocolatemakers,General,Community & Lifestyle,Medium Frequency
+#fcciprotocol,Targeted,Quality & Origin,Medium Frequency
+#thailandcacao,Targeted,Core Cacao & Farming,Medium Frequency
+#tariffs,General,Community & Lifestyle,Medium Frequency
+#trade,General,Community & Lifestyle,Medium Frequency
+#specialty,General,Quality & Origin,Medium Frequency
+#business,General,Community & Lifestyle,Medium Frequency
+#international,General,Community & Lifestyle,Medium Frequency
+#eudr,Targeted,Community & Lifestyle,Medium Frequency
+#climatechange,General,Natural/Organic & Pure,Medium Frequency
+#deforestation,General,Natural/Organic & Pure,Medium Frequency
+#germany,General,Community & Lifestyle,Medium Frequency
+#rittersport,Targeted,Community & Lifestyle,Medium Frequency
+#coffeelovers,General,Community & Lifestyle,Medium Frequency
+#specialtycoffee,General,Community & Lifestyle,Medium Frequency
+#coffeeshops,General,Community & Lifestyle,Medium Frequency
+#coffeemadrid,Targeted,Community & Lifestyle,Medium Frequency
+#coffeefest25,Targeted,Community & Lifestyle,Medium Frequency
+#cf25,Targeted,Community & Lifestyle,Medium Frequency
+#coffeefestmadrid,Targeted,Community & Lifestyle,Medium Frequency
+#cafedeespecialidad,Targeted,Community & Lifestyle,Medium Frequency
+#tostadores,Targeted,Community & Lifestyle,Medium Frequency
+#roaster,General,Community & Lifestyle,Medium Frequency
+#ponencia,Targeted,Community & Lifestyle,Medium Frequency
+#speaker,General,Community & Lifestyle,Medium Frequency
+#carladmartin,Targeted,Community & Lifestyle,Medium Frequency
+#fcci,Targeted,Community & Lifestyle,Medium Frequency
+#summit,General,Community & Lifestyle,Medium Frequency
+#coffeefestsummit,Targeted,Community & Lifestyle,Medium Frequency
+#pastry,General,Products & Uses,Medium Frequency
+#bonbon,General,Products & Uses,Medium Frequency
+#lasvegas,General,Community & Lifestyle,Medium Frequency
+#dessert,General,Products & Uses,Medium Frequency
+#cacaocrafters,Targeted,Community & Lifestyle,Medium Frequency
+#quality,General,Quality & Origin,Medium Frequency
+#bean,General,Core Cacao & Farming,Medium Frequency
+#pruning,Targeted,Core Cacao & Farming,Medium Frequency
+#farm,General,Core Cacao & Farming,Medium Frequency
+#durable,General,Natural/Organic & Pure,Medium Frequency
+#productive,General,Natural/Organic & Pure,Medium Frequency
+#stewardship,General,Natural/Organic & Pure,Medium Frequency
+#cameroon,General,Core Cacao & Farming,Medium Frequency
+#beans,General,Core Cacao & Farming,Medium Frequency
+#eco,General,Natural/Organic & Pure,Medium Frequency
+#climate,General,Natural/Organic & Pure,Medium Frequency
+#trees,General,Natural/Organic & Pure,Medium Frequency
+#plantain,General,Core Cacao & Farming,Medium Frequency
+#nursery,Targeted,Core Cacao & Farming,Medium Frequency
+#sunset,General,Community & Lifestyle,Medium Frequency
+#ecofriendly,General,Natural/Organic & Pure,Medium Frequency
+#cherell,Targeted,Core Cacao & Farming,Medium Frequency
+#albiziastipulata,Targeted,Core Cacao & Farming,Medium Frequency
+#environment,General,Natural/Organic & Pure,Medium Frequency
+#agricultlture,General,Core Cacao & Farming,Medium Frequency
+#pod,General,Core Cacao & Farming,Medium Frequency
+#purpose,General,Community & Lifestyle,Medium Frequency
+#purposeful,General,Community & Lifestyle,Medium Frequency
+#growth,General,Community & Lifestyle,Medium Frequency
+#food,General,Products & Uses,Medium Frequency
+#compost,General,Natural/Organic & Pure,Medium Frequency
+#agriculture,General,Core Cacao & Farming,Medium Frequency
+#bioconceptcacao,Targeted,Core Cacao & Farming,Medium Frequency
+#crops,General,Core Cacao & Farming,Medium Frequency
+#cameroun,General,Core Cacao & Farming,Medium Frequency
+#cacau,General,Core Cacao & Farming,Medium Frequency
+#puertoricancacao,Targeted,Core Cacao & Farming,Medium Frequency
+#honduras,General,Core Cacao & Farming,Medium Frequency
+#elsalvador,General,Core Cacao & Farming,Medium Frequency
+#northcarolinachocolate,Targeted,Community & Lifestyle,Medium Frequency
+#dccs,Targeted,Community & Lifestyle,Medium Frequency
+#dcchocolatesociety,Targeted,Community & Lifestyle,Medium Frequency
+#dcchocolate,Targeted,Community & Lifestyle,Medium Frequency
+#beantobarchocolate,General,Quality & Origin,Medium Frequency
+#singleoriginchocolate,General,Quality & Origin,Medium Frequency
+#dcchocolatelove,Targeted,Community & Lifestyle,Medium Frequency
+#madeindenmark,Targeted,Community & Lifestyle,Medium Frequency
+#singleorigingelato,Targeted,Products & Uses,Medium Frequency
+#gelato,General,Products & Uses,Medium Frequency
+#maxshine,Targeted,Products & Uses,Medium Frequency
+#henna,General,Community & Lifestyle,Medium Frequency
+#pipinghenna,Targeted,Community & Lifestyle,Medium Frequency
+#hennapattern,Targeted,Community & Lifestyle,Medium Frequency
+#foodcoloring,General,Products & Uses,Medium Frequency
+#powderfoodcolors,Targeted,Products & Uses,Medium Frequency
+#gelfoodcolors,Targeted,Products & Uses,Medium Frequency
+#plantbasedcolors,Targeted,Products & Uses,Medium Frequency
+#pastryart,Targeted,Products & Uses,Medium Frequency
+#cocoatown,Targeted,Community & Lifestyle,Medium Frequency
+#empoweringchocopreneurs,Targeted,Community & Lifestyle,Medium Frequency
+#cacaoexcellence,Targeted,Quality & Origin,Medium Frequency
+#cacaoexcellencelab,Targeted,Quality & Origin,Medium Frequency
+#onecgiar,Targeted,Community & Lifestyle,Medium Frequency
+#chocopreneurshowcase,Targeted,Community & Lifestyle,Medium Frequency
+#cocoaismorethanchocolate,Targeted,Community & Lifestyle,Medium Frequency
+#ilovemycocoatownmelanger,Targeted,Products & Uses,Medium Frequency
+#nutbuttermaker,Targeted,Products & Uses,Medium Frequency
+#pistachiochocolate,Targeted,Products & Uses,Medium Frequency
+#tahini,General,Products & Uses,Medium Frequency
+#pistachiobutter,Targeted,Products & Uses,Medium Frequency
+#almondmilk,General,Products & Uses,Medium Frequency
+#craftchocolatemakers,General,Community & Lifestyle,Medium Frequency
+#nutbuttermakers,General,Products & Uses,Medium Frequency
+#craftchocolatemaker,General,Quality & Origin,Medium Frequency
+#bittersweetexhibit,Targeted,Community & Lifestyle,Medium Frequency
+#chocolatemakers,General,Community & Lifestyle,Medium Frequency
+#cocoafarmersarechocolatemakers,Targeted,Community & Lifestyle,Medium Frequency
+#trinidadandtobago,Targeted,Community & Lifestyle,Medium Frequency
+#chocolatetourism,Targeted,Community & Lifestyle,Medium Frequency
+#trinitariocacao,Targeted,Core Cacao & Farming,Medium Frequency
+#desserts,General,Products & Uses,Medium Frequency
+#chefsofinstagram,General,Community & Lifestyle,Medium Frequency
+#worldclassequipment,Targeted,Community & Lifestyle,Medium Frequency
+#lovemycocoatown,Targeted,Community & Lifestyle,Medium Frequency
+#atlantaevents,Targeted,Community & Lifestyle,Medium Frequency
+#zorzal,Targeted,Core Cacao & Farming,Medium Frequency
+#zorzalcacao,Targeted,Core Cacao & Farming,Medium Frequency
+#reservazorzal,Targeted,Core Cacao & Farming,Medium Frequency
+#christmasparty,General,Community & Lifestyle,Medium Frequency
+#holidayjoy,General,Community & Lifestyle,Medium Frequency
+#celebratenature,Targeted,Community & Lifestyle,Medium Frequency
+#livebirdfriendly,Targeted,Natural/Organic & Pure,Medium Frequency
+#sustainablecocoa,Targeted,Natural/Organic & Pure,Medium Frequency
+#specialtychocolate,General,Quality & Origin,Medium Frequency
+#birdfriendlycacao,Targeted,Natural/Organic & Pure,Medium Frequency
+#sustainablechocolate,Targeted,Natural/Organic & Pure,Medium Frequency
+#fruitionchocolate,Targeted,Community & Lifestyle,Medium Frequency
+#beantobar,General,Quality & Origin,Medium Frequency
+#conservation,General,Natural/Organic & Pure,Medium Frequency
+#ethicalsourcing,Targeted,Quality & Origin,Medium Frequency
+#migratorybirds,General,Natural/Organic & Pure,Medium Frequency
+#biodiversity,General,Natural/Organic & Pure,Medium Frequency
+#quinoachocolate,Targeted,Products & Uses,Medium Frequency
+#climateaction,General,Natural/Organic & Pure,Medium Frequency
+#dominicanchocolatefestival,Targeted,Community & Lifestyle,Medium Frequency
+#supportlocal,General,Community & Lifestyle,Medium Frequency
+#sustainablechocolate,Targeted,Natural/Organic & Pure,Medium Frequency
+#chocolateculture,General,Community & Lifestyle,Medium Frequency
+#agoramall,Targeted,Community & Lifestyle,Medium Frequency
+#domnicanrepublic,General,Core Cacao & Farming,Medium Frequency
+#craftchocolatemarket,Targeted,Community & Lifestyle,Medium Frequency
+#communitario,Targeted,Community & Lifestyle,Medium Frequency
+#smithsonian,Targeted,Community & Lifestyle,Medium Frequency
+#americanbirdconservancy,Targeted,Community & Lifestyle,Medium Frequency
+#sustainability,General,Natural/Organic & Pure,Medium Frequency
+#craftchcholatetv,Targeted,Community & Lifestyle,Medium Frequency
+#cacaoroaster,Targeted,Core Cacao & Farming,Medium Frequency
+#cacaopassion,Targeted,Community & Lifestyle,Medium Frequency
+#frenchpastry,Targeted,Products & Uses,Medium Frequency
+#culinaryart,General,Products & Uses,Medium Frequency
+#farmtotable,General,Quality & Origin,Medium Frequency
+#pastrycheflife,General,Community & Lifestyle,Medium Frequency
+#birdscaribbean2024,Targeted,Community & Lifestyle,Medium Frequency
+#babycacaopods,Targeted,Core Cacao & Farming,Medium Frequency
+#farmtobar,Targeted,Quality & Origin,Medium Frequency
+#supportustainability,Targeted,Natural/Organic & Pure,Medium Frequency
+#solardrying,Targeted,Natural/Organic & Pure,Medium Frequency
+#sustainablefoodsystems,General,Natural/Organic & Pure,Medium Frequency
+#chocolatemaking,General,Community & Lifestyle,Medium Frequency
+#greenenergy,General,Natural/Organic & Pure,Medium Frequency
+#cocoamasterclass,Targeted,Community & Lifestyle,Medium Frequency
+#cacaoflower,Targeted,Core Cacao & Farming,Medium Frequency
+#chocolatejourney,Targeted,Community & Lifestyle,Medium Frequency
+#craftchocolate,General,Quality & Origin,Medium Frequency
+#rarefacts,Targeted,Community & Lifestyle,Medium Frequency
+#naturewonders,Targeted,Natural/Organic & Pure,Medium Frequency
+#solardried,Targeted,Natural/Organic & Pure,Medium Frequency
+#dominicanchocolate,Targeted,Core Cacao & Farming,Medium Frequency
+#singleorigincacao,Targeted,Quality & Origin,Medium Frequency
+#cacaoconnoisseur,Targeted,Community & Lifestyle,Medium Frequency
+#cacaotraceability,Targeted,Quality & Origin,Medium Frequency
+#macadamia,General,Products & Uses,Medium Frequency
+#aboriginalculture,Targeted,Community & Lifestyle,Medium Frequency
+#indigenousfoods,Targeted,Community & Lifestyle,Medium Frequency
+#australiandiscovery,Targeted,Community & Lifestyle,Medium Frequency
+#botany,General,Core Cacao & Farming,Medium Frequency
+#nutrition,General,Products & Uses,Medium Frequency
+#foodhistory,General,Community & Lifestyle,Medium Frequency
+#drupe,General,Core Cacao & Farming,Medium Frequency
+#harvesting,General,Core Cacao & Farming,Medium Frequency
+#ferdinandvonmüller,Targeted,Community & Lifestyle,Medium Frequency
+#walterhill,Targeted,Community & Lifestyle,Medium Frequency
+#lordjohnmacadam,Targeted,Community & Lifestyle,Medium Frequency
+#sustainablefarming,Targeted,Natural/Organic & Pure,Medium Frequency
+#gourmetnut,Targeted,Products & Uses,Medium Frequency
+#healthyeating,General,Products & Uses,Medium Frequency
+#coconutflavor,Targeted,Products & Uses,Medium Frequency
+#lalomamacadamia,Targeted,Products & Uses,Medium Frequency
+#frombeanstobarrels,Targeted,Quality & Origin,Medium Frequency
+#teamworkintransportation,Targeted,Community & Lifestyle,Medium Frequency
+#santodomingobound,Targeted,Community & Lifestyle,Medium Frequency
+#embarkationexcitement,Targeted,Community & Lifestyle,Medium Frequency
+#communityempowerment,Targeted,Community & Lifestyle,Medium Frequency
+#cacaoharvest,Targeted,Core Cacao & Farming,Medium Frequency
+#artisanchocolate,General,Quality & Origin,Medium Frequency
+#cleaning,General,Core Cacao & Farming,Medium Frequency
+#new,General,Community & Lifestyle,Medium Frequency
+#mini,General,Products & Uses,Medium Frequency
+#minibar,Targeted,Products & Uses,Medium Frequency
+#ritual,General,Ceremonies Rituals & Healing,Medium Frequency
+#snack,General,Products & Uses,Medium Frequency
+#raiseyourbar,Targeted,Community & Lifestyle,Medium Frequency
+#passionfruit,General,Products & Uses,Medium Frequency
+#puertorico,General,Core Cacao & Farming,Medium Frequency
+#la,General,Community & Lifestyle,Medium Frequency
+#whatsnew,General,Community & Lifestyle,Medium Frequency
+#newrelease,General,Community & Lifestyle,Medium Frequency
+#sneakpeek,General,Community & Lifestyle,Medium Frequency
+#asianflavors,Targeted,Products & Uses,Medium Frequency
+#comingsoon,General,Community & Lifestyle,Medium Frequency
+#valentines,General,Community & Lifestyle,Medium Frequency
+#newyear,General,Community & Lifestyle,Medium Frequency
+#newproduct,General,Community & Lifestyle,Medium Frequency
+#cherry,General,Products & Uses,Medium Frequency
+#cherryvanilla,Targeted,Products & Uses,Medium Frequency
+#classic,General,Products & Uses,Medium Frequency
+#community,General,Community & Lifestyle,Medium Frequency
+#cleveland,General,Community & Lifestyle,Medium Frequency
+#anniversary,General,Community & Lifestyle,Medium Frequency
+#celebration,General,Community & Lifestyle,Medium Frequency
+#tasting,General,Community & Lifestyle,Medium Frequency
+#morning,General,Community & Lifestyle,Medium Frequency
+#coffee,General,Products & Uses,Medium Frequency
+#brokerlife,General,Community & Lifestyle,Medium Frequency
+#anyetsu,Targeted,Community & Lifestyle,Medium Frequency
+#caminoverde,Targeted,Community & Lifestyle,Medium Frequency
+#smore,General,Products & Uses,Medium Frequency
+#worldrecord,General,Community & Lifestyle,Medium Frequency
+#monday,General,Community & Lifestyle,Medium Frequency
+#motivation,General,Community & Lifestyle,Medium Frequency
+#mushrooms,General,Products & Uses,Medium Frequency
+#nootropics,General,Products & Uses,Medium Frequency
+#nwchocolatefestival,Targeted,Community & Lifestyle,Medium Frequency
+#panettone,General,Products & Uses,Medium Frequency
+#peppermint,General,Products & Uses,Medium Frequency
+#cranberry,General,Products & Uses,Medium Frequency
+#holidays,General,Community & Lifestyle,Medium Frequency
+#tistheseason,General,Community & Lifestyle,Medium Frequency
+#plantbased,General,Natural/Organic & Pure,Medium Frequency
+#gift,General,Products & Uses,Medium Frequency
+#sf,General,Community & Lifestyle,Medium Frequency
+#sachainchi,Targeted,Products & Uses,Medium Frequency
+#veganmarshmallows,Targeted,Products & Uses,Medium Frequency
+#campfirebites,Targeted,Products & Uses,Medium Frequency
+#boozybonbons,Targeted,Products & Uses,Medium Frequency
+#toughlife,General,Community & Lifestyle,Medium Frequency
+#limitedrelease,General,Products & Uses,Medium Frequency
+#limitededition,General,Products & Uses,Medium Frequency
+#zorzal,Targeted,Core Cacao & Farming,Medium Frequency
+#campfirechocolate,Targeted,Products & Uses,Medium Frequency
+#taste,General,Quality & Origin,Medium Frequency
+#firsttaste,Targeted,Quality & Origin,Medium Frequency
+#preciousprecious,Targeted,Community & Lifestyle,Medium Frequency
+#ontheroadagain,General,Community & Lifestyle,Medium Frequency
+#chocolatepusher,Targeted,Community & Lifestyle,Medium Frequency
+#bagoftricks,General,Community & Lifestyle,Medium Frequency
+#seattle,General,Community & Lifestyle,Medium Frequency
+#toomuchisneverenough,Targeted,Community & Lifestyle,Medium Frequency
+#womeninchocolate,Targeted,Community & Lifestyle,Medium Frequency
+#chocolatefestival,General,Community & Lifestyle,Medium Frequency
+#unconference,General,Community & Lifestyle,Medium Frequency
+#chocolage,Targeted,Community & Lifestyle,Medium Frequency
+#seattlefoodie,Targeted,Community & Lifestyle,Medium Frequency
+#nwchocolate,Targeted,Community & Lifestyle,Medium Frequency
+#pnw,General,Community & Lifestyle,Medium Frequency
+#festival,General,Community & Lifestyle,Medium Frequency
+#artisanchocolate,General,Quality & Origin,Medium Frequency
+#winner,General,Community & Lifestyle,Medium Frequency
+#ticket,General,Community & Lifestyle,Medium Frequency
+#giveaway,General,Community & Lifestyle,Medium Frequency
+#nwcf,Targeted,Community & Lifestyle,Medium Frequency
+#free,General,Community & Lifestyle,Medium Frequency
+#ticketgiveaway,Targeted,Community & Lifestyle,Medium Frequency
+#happyholidays,General,Community & Lifestyle,Medium Frequency
+#singleorigin,General,Quality & Origin,Medium Frequency
+#gingerbread,General,Products & Uses,Medium Frequency
+#lavender,General,Products & Uses,Medium Frequency
+#bourbon,General,Products & Uses,Medium Frequency
+#cider,General,Products & Uses,Medium Frequency
+#hurricaneian,Targeted,Community & Lifestyle,Medium Frequency
+#disasterrelief,General,Community & Lifestyle,Medium Frequency
+#betterdaysarecoming,General,Community & Lifestyle,Medium Frequency
