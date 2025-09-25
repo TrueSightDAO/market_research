@@ -6,20 +6,28 @@ This repository contains tools and data for managing Instagram content marketing
 
 ```
 market_research/
+├── .github/
+│   └── workflows/
+│       └── sync-to-sheets.yml     # GitHub Actions workflow
 ├── venv/                           # Python virtual environment
 ├── requirements.txt                # Python dependencies
 ├── .gitignore                     # Git ignore file
 ├── README.md                      # This file
+├── GITHUB_ACTIONS_SETUP.md        # GitHub Actions setup guide
+├── CURSOR_AI_GUIDE.md             # AI assistant guide
+├── env.example                    # Environment variables template
 ├── google_credentials.json        # Google Sheets API credentials (not in repo)
 ├── instagram_hashtags.csv         # Comprehensive hashtag database
-├── agroverse_schedule_till_easter.csv  # Content schedule (to be created)
+├── agroverse_schedule_till_easter.csv  # Content schedule
 ├── sync_content_schedule.py       # Script to sync content schedule
 └── sync_hashtags.py              # Script to sync hashtags
 ```
 
 ## 🚀 Quick Start
 
-### 1. Setup Virtual Environment
+### Option 1: Manual Setup (Local Development)
+
+#### 1. Setup Virtual Environment
 
 ```bash
 # Navigate to the repository
@@ -34,7 +42,7 @@ venv\Scripts\activate     # On Windows
 pip install -r requirements.txt
 ```
 
-### 2. Google Sheets API Setup
+#### 2. Google Sheets API Setup
 
 1. Go to [Google Cloud Console](https://console.cloud.google.com/)
 2. Create a new project or select existing one
@@ -44,7 +52,7 @@ pip install -r requirements.txt
 6. Rename it to `google_credentials.json` and place it in this directory
 7. Share your Google Sheets document with the service account email
 
-### 3. Run Sync Scripts
+#### 3. Run Sync Scripts
 
 ```bash
 # Sync content schedule to Google Sheets
@@ -53,6 +61,22 @@ python sync_content_schedule.py
 # Sync hashtags to Google Sheets
 python sync_hashtags.py
 ```
+
+### Option 2: Automated Setup (GitHub Actions) ⭐ **RECOMMENDED**
+
+For automated syncing whenever you commit changes, set up GitHub Actions:
+
+1. **Follow the detailed setup guide**: [GITHUB_ACTIONS_SETUP.md](./GITHUB_ACTIONS_SETUP.md)
+2. **Quick setup**:
+   - Add your Google credentials as a GitHub Secret: `GOOGLE_CREDENTIALS_JSON`
+   - Push changes to trigger automatic syncing
+   - View sync status in the Actions tab of your repository
+
+**Benefits**:
+- ✅ Automatic syncing on every commit
+- ✅ No manual intervention required
+- ✅ Consistent, reliable execution
+- ✅ Full audit trail and logging
 
 ## 📊 Data Files
 
