@@ -178,7 +178,7 @@ class FeedbackProcessor:
         changes = 0
         
         # Find content entries with empty status (need improvement)
-        empty_status_rows = content_df[content_df['status'].str.strip() == '']
+        empty_status_rows = content_df[content_df['status'].fillna('').str.strip() == '']
         
         if len(empty_status_rows) == 0:
             return 0
@@ -223,7 +223,7 @@ class FeedbackProcessor:
         changes = 0
         
         # Find content entries with empty status
-        empty_status_rows = content_df[content_df['status'].str.strip() == '']
+        empty_status_rows = content_df[content_df['status'].fillna('').str.strip() == '']
         
         if len(empty_status_rows) == 0:
             return 0
@@ -256,7 +256,7 @@ class FeedbackProcessor:
         changes = 0
         
         # Mark a few random empty status rows as reviewed
-        empty_status_rows = content_df[content_df['status'].str.strip() == '']
+        empty_status_rows = content_df[content_df['status'].fillna('').str.strip() == '']
         if len(empty_status_rows) > 0:
             sample_rows = empty_status_rows.sample(min(1, len(empty_status_rows)))
             for idx in sample_rows.index:
