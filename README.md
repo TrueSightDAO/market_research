@@ -20,7 +20,10 @@ market_research/
 ├── instagram_hashtags.csv         # Comprehensive hashtag database
 ├── agroverse_schedule_till_easter.csv  # Content schedule
 ├── sync_content_schedule.py       # Script to sync content schedule
-└── sync_hashtags.py              # Script to sync hashtags
+├── sync_hashtags.py              # Script to sync hashtags
+├── sync_feedback.py              # Script to sync community feedback
+├── process_feedback.py           # AI feedback processor
+└── FEEDBACK_WORKFLOW.md          # Manual feedback integration guide
 ```
 
 ## 🚀 Quick Start
