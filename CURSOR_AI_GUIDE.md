@@ -37,6 +37,62 @@ Week,Date Range,Theme Focus,Post Day,Post Type,Theme,Description,Caption,Hashtag
 Week 1,Sep 29-Oct 5,Fall Harvest Tease,"Mon, Sep 29",Reel,Behind-the-Scenes,Quick clip...,As fall arrives...,#cacao #cacaobeans...,Tag a friend...,Canva for thumbnail...
 ```
 
+## 🎯 **CRITICAL: RiseGuide Caption Framework**
+**ALL future captions MUST follow this format:**
+
+### **Hook + Value (3 Quick Tips) + CTA Structure**
+
+**Template:**
+```
+[EMOJI] [Compelling hook/question/bold statement] [Brief context about the story/situation]!
+
+Here's [what viewers will learn/3 quick insights about the topic]:
+1️⃣ [First actionable tip or insight]
+2️⃣ [Second actionable tip or insight] 
+3️⃣ [Third actionable tip or insight]
+
+[Clear call-to-action with engagement prompt]!
+```
+
+**Example (CORRECT):**
+```
+🌍 Ever wonder what it takes to get Brazilian cacao to your doorstep? Watch Matheus battle bureaucracy at Correios, only to be blocked by USA tariffs!
+
+Here's the reality of small business shipping:
+1️⃣ Tariffs can suddenly block even simple mail packages
+2️⃣ International shipping requires navigating complex customs rules
+3️⃣ Small businesses like us face extra challenges that big companies don't!
+
+Drop a 🇧🇷 below if you're rooting for us to bring this regenerative goodness to you!
+```
+
+**Example (INCORRECT - Generic tips):**
+```
+🌍 Ever wonder what it takes to get Brazilian cacao to your doorstep? Watch Matheus battle bureaucracy at Correios, only to be blocked by USA tariffs!
+
+Here's how we overcome export challenges:
+1️⃣ Partnering with local advocates to navigate regulations
+2️⃣ Finding creative shipping solutions to keep costs down
+3️⃣ Staying relentless—because sustainable cacao is worth it!
+
+Drop a 🇧🇷 below if you're rooting for us to bring this regenerative goodness to you!
+```
+
+### **Key Requirements:**
+1. **Hook**: Must be engaging and relevant to the story being told
+2. **3 Tips**: Must be directly related to the actual situation/content
+3. **Tips should be educational** and provide real value to viewers
+4. **CTA**: Must encourage engagement (comments, tags, DMs)
+5. **Use numbered emojis** (1️⃣ 2️⃣ 3️⃣) for the tips
+6. **Keep authentic to sustainable cacao farming in Brazil**
+
+### **Common Mistakes to Avoid:**
+- ❌ Generic tips that don't relate to the actual story
+- ❌ Tips about "solutions" when the story is about challenges
+- ❌ Tips that contradict the narrative being shown
+- ❌ Overly promotional language in the tips section
+- ❌ Missing numbered emojis (1️⃣ 2️⃣ 3️⃣)
+
 ## ⚡ **Common Scenarios & Solutions**
 
 ### **Scenario 1: "Something new came up that's more interesting"**
@@ -61,7 +117,15 @@ Week 3,Oct 13-19,Sustainability Initiative,"Mon, Oct 13",Reel,Community Impact,H
 **Your actions:**
 1. **Add new rows** to the CSV with proper date ranges
 2. **Follow the existing format** exactly
-3. **Run sync** - new content will get empty status (ready for manual status updates)
+3. **Apply RiseGuide caption framework** to ALL new captions
+4. **Run sync** - new content will get empty status (ready for manual status updates)
+
+**Caption Generation Process:**
+1. **Understand the story/theme** being told
+2. **Create compelling hook** that relates to the actual content
+3. **Develop 3 educational tips** that are directly relevant to the story
+4. **Write engaging CTA** that encourages interaction
+5. **Review for authenticity** to sustainable cacao farming in Brazil
 
 ### **Scenario 3: "We need to remove content for certain dates"**
 **Your actions:**
@@ -122,7 +186,9 @@ python sync_content_schedule.py
 2. **ALWAYS test with small changes first** (1-2 rows)
 3. **Primary keys are immutable** - changing date/type/theme changes the key
 4. **Status values are sacred** - they represent human work
-5. **When in doubt, ask the user** before making changes
+5. **ALL captions MUST follow RiseGuide framework** - Hook + Value (3 Quick Tips) + CTA
+6. **Tips must be relevant to the actual story** - not generic business advice
+7. **When in doubt, ask the user** before making changes
 
 ## 🛠️ **Troubleshooting**
 
@@ -143,6 +209,16 @@ python sync_content_schedule.py
 - **Cause**: Google Sheets API limitation when updating data
 - **Solution**: Recreate data validation rules manually in Google Sheets
 - **Prevention**: Document your data validation rules for easy recreation
+
+### **"Caption doesn't follow RiseGuide format"**
+- **Cause**: Missing framework structure or irrelevant tips
+- **Solution**: Review and rewrite using Hook + Value (3 Quick Tips) + CTA structure
+- **Validation Checklist**:
+  - ✅ Has engaging hook related to the story?
+  - ✅ Has exactly 3 numbered tips (1️⃣ 2️⃣ 3️⃣)?
+  - ✅ Tips are relevant to the actual content shown?
+  - ✅ Has clear call-to-action for engagement?
+  - ✅ Authentic to sustainable cacao farming in Brazil?
 
 ## 💡 **Pro Tips**
 
@@ -178,6 +254,9 @@ python sync_content_schedule.py
 - ✅ New content is ready for manual status updates
 - ✅ Google Sheets reflects all changes
 - ✅ User understands any status preservation implications
+- ✅ **All captions follow RiseGuide framework**
+- ✅ **Tips are relevant to the actual story/content**
+- ✅ **Captions are educational and engaging**
 
 ---
 
