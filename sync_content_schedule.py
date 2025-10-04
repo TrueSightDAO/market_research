@@ -30,7 +30,7 @@ load_dotenv()
 class ContentScheduleSyncer:
     def __init__(self):
         self.credentials_file = "google_credentials.json"
-        self.csv_file = "agroverse_schedule_till_easter.csv"
+        self.csv_file = "agroverse_schedule_till_easter_cleaned.csv"
         self.spreadsheet_id = "1ghZXeMqFq97Vl6yLKrtDmMQdQkd-4EN5yQs34NA_sBQ"
         self.worksheet_name = "Content schedule"
         
