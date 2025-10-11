@@ -15,6 +15,7 @@ You are taking over the management of Instagram content scheduling for Agroverse
 - **Workaround**: Set up data validation rules as a template and reapply them after major updates
 
 ## 📁 **Key Files**
+- **Repository**: `agroverse_content_schedule`
 - **Main CSV**: `agroverse_schedule_till_easter.csv`
 - **Google Sheet**: [Content Schedule](https://docs.google.com/spreadsheets/d/1ghZXeMqFq97Vl6yLKrtDmMQdQkd-4EN5yQs34NA_sBQ/edit?gid=1682511679#gid=1682511679)
 - **Sync Script**: `sync_content_schedule.py`
@@ -38,7 +39,13 @@ Week 1,Sep 29-Oct 5,Fall Harvest Tease,"Mon, Sep 29",Reel,Behind-the-Scenes,Quic
 ```
 
 ## 🎯 **CRITICAL: RiseGuide Caption Framework**
-**ALL future captions MUST follow this format:**
+**ALL future captions for UNSCHEDULED content MUST follow this format:**
+**Note**: Only apply to rows where status is empty (unscheduled). Content up to and including `cbe4cec1` has been scheduled and should not be modified unless specifically requested.
+
+### **Current Scheduling Status (as of latest update):**
+- **SCHEDULED**: Primary keys `3e583b71`, `1e33633b`, `c3b9a959`, `4932f5b1`, `25271f57`, `1fb39e1b`, `30874650`, `b1a49285`, `cbe4cec1`
+- **UNSCHEDULED**: All content after `cbe4cec1` (status = empty)
+- **RiseGuide Framework**: Apply ONLY to unscheduled content
 
 ### **Hook + Value (3 Quick Tips) + CTA Structure**
 
@@ -139,6 +146,9 @@ Week 3,Oct 13-19,Sustainability Initiative,"Mon, Oct 13",Reel,Community Impact,H
 - What date ranges are affected?
 - What content needs to change?
 - Can you keep Post Day/Type/Theme the same?
+- **Check scheduling status**: Are the affected rows SCHEDULED or UNSCHEDULED?
+- **If SCHEDULED**: Only modify if specifically requested by user
+- **If UNSCHEDULED**: Apply RiseGuide framework to all new captions
 
 ### **Step 2: Make Changes**
 ```bash
@@ -186,9 +196,10 @@ python sync_content_schedule.py
 2. **ALWAYS test with small changes first** (1-2 rows)
 3. **Primary keys are immutable** - changing date/type/theme changes the key
 4. **Status values are sacred** - they represent human work
-5. **ALL captions MUST follow RiseGuide framework** - Hook + Value (3 Quick Tips) + CTA
-6. **Tips must be relevant to the actual story** - not generic business advice
-7. **When in doubt, ask the user** before making changes
+5. **ALL NEW/UNSCHEDULED captions MUST follow RiseGuide framework** - Hook + Value (3 Quick Tips) + CTA
+6. **DO NOT modify scheduled captions** (status = "SCHEDULED") unless specifically requested
+7. **Tips must be relevant to the actual story** - not generic business advice
+8. **When in doubt, ask the user** before making changes
 
 ## 🛠️ **Troubleshooting**
 
@@ -254,7 +265,8 @@ python sync_content_schedule.py
 - ✅ New content is ready for manual status updates
 - ✅ Google Sheets reflects all changes
 - ✅ User understands any status preservation implications
-- ✅ **All captions follow RiseGuide framework**
+- ✅ **All NEW/UNSCHEDULED captions follow RiseGuide framework**
+- ✅ **SCHEDULED captions remain unchanged** (unless specifically requested)
 - ✅ **Tips are relevant to the actual story/content**
 - ✅ **Captions are educational and engaging**
 
