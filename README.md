@@ -1,6 +1,6 @@
 # Market Research Repository
 
-This repository contains tools and data for managing Instagram content marketing and hashtag research for Agroverse.shop.
+This repository contains tools and data for managing **multi-channel content marketing** for Agroverse.shop, including Instagram, blog content, and hashtag research.
 
 ## 📁 Repository Structure
 
@@ -8,22 +8,34 @@ This repository contains tools and data for managing Instagram content marketing
 market_research/
 ├── .github/
 │   └── workflows/
-│       └── sync-to-sheets.yml     # GitHub Actions workflow
-├── venv/                           # Python virtual environment
-├── requirements.txt                # Python dependencies
-├── .gitignore                     # Git ignore file
-├── README.md                      # This file
-├── GITHUB_ACTIONS_SETUP.md        # GitHub Actions setup guide
-├── CURSOR_AI_GUIDE.md             # AI assistant guide
-├── env.example                    # Environment variables template
-├── google_credentials.json        # Google Sheets API credentials (not in repo)
-├── instagram_hashtags.csv         # Comprehensive hashtag database
-├── agroverse_schedule_till_easter.csv  # Content schedule
-├── sync_content_schedule.py       # Script to sync content schedule
-├── sync_hashtags.py              # Script to sync hashtags
-├── sync_feedback.py              # Script to sync community feedback
-├── process_feedback.py           # AI feedback processor
-└── FEEDBACK_WORKFLOW.md          # Manual feedback integration guide
+│       └── sync-to-sheets.yml              # GitHub Actions workflow
+├── venv/                                    # Python virtual environment
+├── requirements.txt                         # Python dependencies
+├── .gitignore                              # Git ignore file
+├── README.md                               # This file
+├── GITHUB_ACTIONS_SETUP.md                 # GitHub Actions setup guide
+├── CURSOR_AI_GUIDE.md                      # Instagram content management guide
+├── BLOG_SCHEDULE_GUIDE.md                  # Blog content management guide ⭐ NEW
+├── FEEDBACK_WORKFLOW.md                    # Manual feedback integration guide
+├── env.example                             # Environment variables template
+├── google_credentials.json                 # Google Sheets API credentials (not in repo)
+│
+├── instagram_hashtags.csv                  # Comprehensive hashtag database
+├── agroverse_schedule_till_easter_cleaned.csv  # Instagram content schedule
+├── sync_content_schedule.py                # Sync Instagram schedule to Sheets
+│
+├── blog_schedule.csv                       # Blog content schedule ⭐ NEW
+├── blog_schedule_template.csv              # Blog schedule template/example ⭐ NEW
+├── blog_posts/                             # Markdown blog post content ⭐ NEW
+│   └── okanogan_journey.md                 # First blog post
+├── sync_blog_schedule.py                   # Sync blog schedule to Sheets ⭐ NEW
+├── create_blog_drafts.py                   # Create Wix drafts from schedule ⭐ NEW
+├── update_blog_draft.py                    # Update Wix drafts by primary key ⭐ NEW
+├── wix_blog_publisher.py                   # Wix API integration library ⭐ NEW
+│
+├── sync_hashtags.py                        # Script to sync hashtags
+├── sync_feedback.py                        # Script to sync community feedback
+└── process_feedback.py                     # AI feedback processor
 ```
 
 ## 🚀 Quick Start
@@ -58,8 +70,11 @@ pip install -r requirements.txt
 #### 3. Run Sync Scripts
 
 ```bash
-# Sync content schedule to Google Sheets
+# Sync Instagram content schedule to Google Sheets
 python sync_content_schedule.py
+
+# Sync blog content schedule to Google Sheets
+python sync_blog_schedule.py
 
 # Sync hashtags to Google Sheets
 python sync_hashtags.py
@@ -103,6 +118,28 @@ Contains Instagram content planning data with:
 
 **Important**: The `primary_key` column is automatically generated and used to match rows during sync, preserving manual status updates in Google Sheets.
 
+### Blog Content Schedule (`blog_schedule.csv`) ⭐ NEW
+
+Contains blog publishing schedule data with:
+- **Primary Key**: Unique 8-character identifier based on Publish Date + Blog Title
+- **Status**: Content status (DRAFT, REVIEW, SCHEDULED, PUBLISHED)
+- **SEO Keywords**: Target keywords for each post
+- **Content Outline**: Section-by-section structure
+- **Instagram Tie-In**: How blog connects to Instagram content
+- **Internal Links**: SEO linking strategy
+- **Target Word Count**: Article length goals
+
+**Synchronization with Instagram**: Blog posts are strategically timed to support and expand on Instagram content themes, creating a cohesive multi-channel strategy.
+
+**Recommended Cadence**: 
+- Start: 1 blog post per week (Weekly Monday publishing)
+- Growth: 2 blog posts per week (Monday + Thursday)
+- Blog published BEFORE related Instagram series begins
+
+**Wix Draft Integration**: Blog drafts are created via Wix API and tracked in Google Sheets by Wix Draft ID. This allows for easy reference by primary key and collaborative editing workflow.
+
+See **[BLOG_SCHEDULE_GUIDE.md](./BLOG_SCHEDULE_GUIDE.md)** for strategy, **[WIX_DRAFT_WORKFLOW.md](./WIX_DRAFT_WORKFLOW.md)** for the draft creation workflow, **[WIX_BLOG_GUIDE.md](./WIX_BLOG_GUIDE.md)** for manual publishing, and **[WIX_API_AUTOMATION_GUIDE.md](./WIX_API_AUTOMATION_GUIDE.md)** for API details.
+
 ## 🔄 Sync Process
 
 ### Content Schedule Sync
@@ -118,6 +155,21 @@ The `sync_content_schedule.py` script:
 8. Provides confirmation and link to updated sheet
 
 **Status Preservation**: Manual status updates in Column B are preserved during sync using primary key matching.
+
+### Blog Schedule Sync ⭐ NEW
+
+The `sync_blog_schedule.py` script:
+1. Reads `blog_schedule.csv`
+2. Generates primary keys based on Publish Date + Blog Title
+3. Retrieves existing status values from Google Sheets
+4. Connects to "Blog Content Schedule" worksheet (same spreadsheet)
+5. Clears existing content
+6. Uploads new data while preserving status values
+7. Maintains status integrity through primary key matching
+
+**Status Preservation**: Like Instagram, blog post statuses (DRAFT, SCHEDULED, PUBLISHED) are preserved during sync.
+
+**Integration**: Blog schedule lives in the same Google Sheets document as Instagram content for easy cross-referencing.
 
 ### Hashtags Sync
 
