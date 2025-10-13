@@ -36,10 +36,12 @@ The DAO's sourcing team has been actively expanding our network of regenerative 
 
 ### Market Intelligence
 
-Community member Edgar attended trade show sessions gathering intelligence on:
+A community member attended trade show sessions gathering intelligence on:
 - **Premium cacao market positioning**: 73% cacao content products targeting retail
 - **Profit margins**: Understanding the 60% profit margin potential in the premium chocolate segment
 - **Distribution strategy**: Identifying paths to retailers for our regenerative cacao products
+
+*This market research was logged by Edgar after the contributor submitted their findings via Telegram.*
 
 ---
 
