@@ -130,7 +130,7 @@ January Weeks:
 
 ### Step 3: Sync to Google Sheets
 ```bash
-cd /Users/garyjob/Applications/market_research
+cd /Users/garyjob/Applications/content_schedule
 source venv/bin/activate
 python sync_blog_schedule.py
 ```

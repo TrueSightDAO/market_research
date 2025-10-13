@@ -1,11 +1,11 @@
-# Market Research Repository
+# Content Schedule Repository
 
-This repository contains tools and data for managing **multi-channel content marketing** for Agroverse.shop, including Instagram, blog content, and hashtag research.
+This repository contains tools and data for managing **multi-channel content marketing** for Agroverse.shop and TrueSight DAO, including Instagram, blog content, and hashtag research.
 
 ## 📁 Repository Structure
 
 ```
-market_research/
+content_schedule/
 ├── .github/
 │   └── workflows/
 │       └── sync-to-sheets.yml              # GitHub Actions workflow
@@ -46,7 +46,7 @@ market_research/
 
 ```bash
 # Navigate to the repository
-cd market_research
+cd content_schedule
 
 # Activate virtual environment
 source venv/bin/activate  # On macOS/Linux
