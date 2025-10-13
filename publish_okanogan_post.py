@@ -20,7 +20,7 @@ def main():
     
     # Read the blog post content
     print("\n📖 Reading blog post content...")
-    with open('blog_posts/okanogan_journey.md', 'r') as f:
+    with open('agroverse_blog_posts/okanogan_journey.md', 'r') as f:
         content = f.read()
     
     # Extract metadata from the content

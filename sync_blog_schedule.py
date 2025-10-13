@@ -16,7 +16,7 @@ import sys
 SCOPE = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/auth/drive']
 CREDS_FILE = 'google_credentials.json'
 SPREADSHEET_NAME = '20250924 - Instagram Content Marketing Schedule'  # Same spreadsheet
-BLOG_WORKSHEET_NAME = 'Blog Content Schedule'  # New worksheet in same spreadsheet
+BLOG_WORKSHEET_NAME = 'Agroverse Blog Content Schedule'  # New worksheet in same spreadsheet
 CSV_FILE = 'blog_schedule.csv'
 
 def connect_to_sheets():

@@ -341,7 +341,7 @@ def main():
     
     print("\n✅ Ready to publish blog posts!")
     print("\nNext steps:")
-    print("1. Review blog_posts/okanogan_journey.md")
+    print("1. Review agroverse_blog_posts/okanogan_journey.md")
     print("2. Run: python publish_okanogan_post.py")
     print("3. Or manually copy content to Wix dashboard")
 

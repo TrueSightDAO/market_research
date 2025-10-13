@@ -68,7 +68,7 @@ def main():
         print("\nUsage:")
         print("  python update_blog_draft.py <primary_key> <markdown_file>")
         print("\nExample:")
-        print("  python update_blog_draft.py 4098f184 blog_posts/okanogan_journey.md")
+        print("  python update_blog_draft.py 4098f184 agroverse_blog_posts/okanogan_journey.md")
         print("\nOr interactive mode:")
         print("  python update_blog_draft.py")
         sys.exit(1)

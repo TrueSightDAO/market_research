@@ -54,7 +54,7 @@ def generate_blog_html(markdown_file, output_file=None):
     # Generate output filename if not provided
     if not output_file:
         slug = metadata.get('URL Slug', 'blog-post')
-        output_file = f'blog_posts/{slug}_html.html'
+        output_file = f'agroverse_blog_posts/{slug}_html.html'
     
     # Create formatted HTML with instructions
     full_html = f"""
@@ -139,6 +139,6 @@ POST-PUBLISHING CHECKLIST:
 
 if __name__ == "__main__":
     # Generate HTML for Okanogan post
-    output = generate_blog_html('blog_posts/okanogan_journey.md')
+    output = generate_blog_html('agroverse_blog_posts/okanogan_journey.md')
     print(f"\n🎉 Done! Open {output} to view the HTML")
 
