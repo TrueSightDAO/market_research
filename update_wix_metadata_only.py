@@ -129,7 +129,7 @@ def main():
             # Find markdown file
             publish_date = post_row['Publish Date']
             md_file = f"agroverse_blog_posts/{publish_date}_{primary_key}_*.md"
-            github_url = f"https://github.com/TrueSightDAO/market_research/blob/main/agroverse_blog_posts/{publish_date}_{primary_key}_*"
+            github_url = f"https://github.com/TrueSightDAO/content_schedule/blob/main/agroverse_blog_posts/{publish_date}_{primary_key}_*"
             
             print(f"\n📍 Next Steps:")
             print(f"1. Go to Wix Dashboard > Blog > Drafts")

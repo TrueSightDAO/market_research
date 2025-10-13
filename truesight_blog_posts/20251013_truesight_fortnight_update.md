@@ -16,8 +16,8 @@ The past two weeks have seen significant momentum in TrueSight DAO, with **100 c
 
 ## 📊 By the Numbers
 
-- **100** total contributions submitted
-- **2** active contributors  
+- **100** total contributions logged by our AI bot
+- **Multiple** community members contributing across workstreams
 - **4** major focus areas
 - **26** cacao sourcing & operations activities
 - **9** infrastructure improvements
@@ -61,11 +61,13 @@ The DAO's technical infrastructure received attention this fortnight:
 
 ### Strategic Coffee Sessions
 
-Building relationships and exploring collaborations:
+Community members building relationships and exploring collaborations:
 
 - **150-minute session** with Stanley Li and Ken Nim from the Bay Area
 - **Partnership discussions**: Exploring how TrueSight DAO's regenerative cacao model can expand
 - **Knowledge sharing**: Cross-pollinating ideas between community members
+
+*These activities were logged by Edgar, our AI contribution tracking bot, which automatically records all community member submissions.*
 
 ### DAO Operations
 
@@ -81,12 +83,14 @@ Regular operations ensuring transparent governance:
 
 ### Transparent Contribution Tracking
 
-Every activity mentioned above was logged in our Telegram channels and automatically tracked through our contribution bot (@truesight_tdg_bot). This transparency is core to TrueSight DAO's model:
+Every activity mentioned above was logged in our Telegram channels and automatically tracked through Edgar, our AI contribution bot (@truesight_tdg_bot). Edgar monitors Telegram submissions from DAO members and records them in our public ledger. This transparency is core to TrueSight DAO's model:
 
-1. **Members contribute** work to DAO projects
-2. **Contributions are logged** automatically via Telegram
+1. **Members submit** work to DAO projects via Telegram
+2. **Edgar (AI bot) logs** contributions automatically
 3. **Governors review** and approve TDG token issuance
-4. **Contributors earn** based on verified work
+4. **Contributors earn** TDG tokens based on verified work
+
+*Edgar isn't a human contributor—it's our AI system ensuring no contribution goes untracked.*
 
 ### Regenerative Supply Chain in Action
 
@@ -125,9 +129,10 @@ Every contribution is tracked and rewarded through our TDG token system.
 ## 🎯 Key Takeaways
 
 **For Contributors:**
-- Your work is visible, tracked, and rewarded
+- Your work is automatically logged by Edgar (our AI bot) - nothing falls through the cracks
 - The DAO values both strategic (sourcing) and operational (infrastructure) contributions
 - Community building and governance participation matter
+- Submit via Telegram, Edgar tracks it, governors approve it
 
 **For Observers:**
 - TrueSight DAO is actively building regenerative supply chains, not just talking about them
@@ -171,9 +176,9 @@ TrueSight DAO is building the regenerative supply chains of the future, one cont
 
 ---
 
-*This update was compiled from 100 contributions logged in TrueSight DAO Telegram channels between September 29 - October 13, 2025. All contribution data is publicly verifiable on our [Google Sheets ledger](https://docs.google.com/spreadsheets/d/1qbZZhf-_7xzmDTriaJVWj6OZshyQsFkdsAV8-pyzASQ).*
+*This update was compiled from 100 contributions logged by Edgar, our AI tracking bot, in TrueSight DAO Telegram channels between September 29 - October 13, 2025. All contribution data is publicly verifiable on our [Google Sheets ledger](https://docs.google.com/spreadsheets/d/1qbZZhf-_7xzmDTriaJVWj6OZshyQsFkdsAV8-pyzASQ).*
 
 ---
 
-**About TrueSight DAO**: A decentralized autonomous organization building transparent, regenerative supply chains for cacao and other agricultural products. Every contribution is tracked, every decision is voted on, and every participant is rewarded fairly through our TDG token system.
+**About TrueSight DAO**: A decentralized autonomous organization building transparent, regenerative supply chains for cacao and other agricultural products. Every contribution is tracked by Edgar (our AI bot), every decision is voted on, and every participant is rewarded fairly through our TDG token system.
 
