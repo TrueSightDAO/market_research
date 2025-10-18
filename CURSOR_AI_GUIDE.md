@@ -3,6 +3,132 @@
 ## 🎯 **Your Mission**
 You are taking over the management of Instagram content scheduling for Agroverse.shop. Your primary responsibility is to update the content schedule when marketing priorities change or new opportunities arise.
 
+## 🌟 **AGROVERSE CONTENT MARKETING STRATEGY: THE 3 CORE THEMES**
+
+**CRITICAL**: All content must align with at least one (ideally multiple) of these strategic pillars. These themes create Agroverse's competitive moat in the regenerative cacao market.
+
+### **🌱 Theme 1: REGENERATIVE FARMING & TRACEABILITY**
+**Core Message:** "Know your farmers, heal the planet"
+
+**Key Elements:**
+- Direct relationships with Oscar, Paulo, Vivi and farmers in Pará & Bahia
+- Cabruca agroforestry system (preserving Atlantic Forest biodiversity)
+- **Tree planting impact** - "Each bag plants trees in the Amazon rainforest" (PRIMARY CTA)
+- Behind-the-scenes farm visits and sourcing transparency
+- Climate-resilient varieties and innovation
+- Fair farmer compensation and community empowerment
+- Zero middlemen - direct farm partnerships
+
+**Content Types:**
+- Farm tour reels and carousels
+- Farmer interview content
+- Regenerative practice demonstrations
+- Impact reports (trees planted, carbon offset)
+- Sourcing audit behind-the-scenes
+- Community event coverage (Okanogan Barter Faire)
+
+**Sample Captions:**
+- "Oscar's 80-year-old trees planted by his grandfather"
+- "Your spring purchases funded the relationships we're celebrating today"
+- "Plant trees with every purchase! 🌳"
+
+---
+
+### **📚 Theme 2: CACAO EDUCATION & ORIGINS**
+**Core Message:** "Brazilian cacao is unique—here's why it matters"
+
+**Key Elements:**
+- **Regional distinctions** - Bahia (molasses, red fruits, spices) vs Amazon (tobacco, olive, fudgy)
+- Nutritional science - flavonoids, magnesium, theobromine, mood benefits
+- How-to guides - eating cacao nibs, ceremonial preparation, recipes
+- Variety education - Trinitario, Forastero, native genetics (Catongo, FL89)
+- Global comparisons - Brazilian vs Latin American/Caribbean/Tropical profiles
+- Processing transparency - fermentation, winnowing, quality control
+- Applications - artisanal chocolate, ceremonial use, culinary pairings
+
+**Content Types:**
+- Educational carousels (nutrient breakdowns, flavor profiles)
+- How-to guides (15 ways to eat cacao nibs)
+- Comparison infographics (Brazil vs global origins)
+- Behind-the-scenes processing videos
+- Recipe demonstrations
+- Scientific deep dives
+
+**Sample Content:**
+- "The Heart of Brazilian Cacao: Bahia and Amazon Origins" (blog)
+- "What's actually IN regenerative cacao?" (nutrients carousel)
+- "How to eat cacao nibs" (8-slide practical guide)
+
+---
+
+### **🤝 Theme 3: COMMUNITY & CONSCIOUS LIVING**
+**Core Message:** "Every purchase is a ritual—you're part of the ecosystem"
+
+**Key Elements:**
+- **Ceremonial cacao** & wellness rituals (meditation, intention-setting)
+- Community connections - Okanogan Barter Faire, customer stories, local markets
+- Cultural traditions - Día de los Muertos, indigenous wisdom, seasonal celebrations
+- Mindfulness & consciousness - not just consumption, but participation
+- Meaningful gifting - stories over stuff, purpose over products
+- Seasonal wellness - winter immunity, mood support, holiday rituals
+- Building conscious consumer community - "Tag someone who asks where their food comes from"
+
+**Content Types:**
+- Cacao ceremony guides
+- Holiday ritual content (Thanksgiving, Christmas, New Year)
+- Customer testimonials and shoutouts
+- Seasonal wellness tips
+- Community event coverage
+- Gratitude and reflection posts
+
+**Sample Content:**
+- "Halloween Cacao Rituals: Ancient Traditions Meet Modern Celebrations"
+- "Gifts that tell better stories than flowers"
+- "New Year intention-setting with cacao"
+- "Elinor and Rune sharing at Okanogan - building bridges from Okanogan to Amazon"
+
+---
+
+### **🔗 How These Themes Interconnect:**
+
+**The Customer Journey:**
+```
+DISCOVERY (Theme 1)     →  EDUCATION (Theme 2)      →  BELONGING (Theme 3)
+"Meet Oscar's farm"     →  "Understand why it's    →  "Join our tree-planting
+                            different/better"           movement & rituals"
+```
+
+**Example Multi-Theme Post:**
+```
+🍂 Elinor and Rune are at Okanogan... (Theme 3: Community)
+...sharing cacao from Oscar's farm... (Theme 1: Farmer relationship)
+These clips show conscious community connecting... (Theme 3: Conscious living)
+Direct relationships matter—Oscar, Paulo, Vivi... (Theme 1: Traceability)
+Plant trees with every purchase! 🌳 (Theme 1: Impact + Theme 3: Movement)
+```
+
+**Why This Strategy Works:**
+1. **Differentiation** - Can't buy this from Amazon or big chocolate brands
+2. **AI-proof** - Authentic farm relationships can't be replicated by chatbots
+3. **Emotional moat** - Tree planting + community + farmer stories = loyalty beyond price
+4. **SEO foundation** - Educational content becomes AI training data
+5. **Multi-channel amplification** - Blog deepens Instagram teases, email recaps both
+
+---
+
+### **📋 Content Creation Checklist:**
+
+Before creating new content, ask:
+- ✅ Does this highlight regenerative farming or farmer relationships? (Theme 1)
+- ✅ Does this educate about Brazilian cacao's uniqueness? (Theme 2)  
+- ✅ Does this build community or conscious living? (Theme 3)
+- ✅ Does the CTA emphasize tree planting or joining the movement?
+- ✅ Are Oscar, Paulo, Vivi (or specific farmers) mentioned when relevant?
+
+**If content doesn't touch at least ONE theme, reconsider its strategic value.**
+
+---
+
 ## 🚨 **CRITICAL: Status Preservation System**
 - **NEVER override status values in Column B** of the Google Sheets
 - Status values represent manual work done by humans and must be preserved
@@ -273,3 +399,145 @@ python sync_content_schedule.py
 ---
 
 **Remember**: Your job is to help the user update content while preserving the valuable status tracking work that's already been done in Google Sheets. When in doubt, explain the implications to the user before proceeding.
+
+---
+
+# 📝 **TrueSight DAO Blog Post Generation**
+
+## 🎯 **Mission**
+Generate bi-weekly blog posts for TrueSight DAO highlighting community activity from the past 2 weeks, pulled directly from the public Telegram contribution logs.
+
+## 📊 **Data Source**
+- **Google Sheet**: [TrueSight DAO Telegram Compilation](https://docs.google.com/spreadsheets/d/1qbZZhf-_7xzmDTriaJVWj6OZshyQsFkdsAV8-pyzASQ)
+- **Worksheet**: "Telegram Chat Logs"
+- **Data Range**: Last 14 days of contributions
+
+## 🤖 **Understanding Edgar**
+- **Edgar is NOT a human contributor**
+- Edgar is the **AI bot** that logs submissions from DAO members via Telegram
+- When you see "Contributor Name: Edgar" - it means Edgar logged a community member's submission
+- **NEVER say**: "Edgar did X" or "Edgar attended Y"
+- **ALWAYS say**: "Community members did X (logged by Edgar)" or "A community member attended Y"
+
+## 📁 **File Naming Convention**
+```
+truesight_blog_posts/YYYYMMDD_highlight_title.md
+```
+
+**Examples:**
+- `20251013_cacao_sourcing_expansion.md` (26 sourcing activities = main story)
+- `20251027_infrastructure_overhaul.md` (if infrastructure is the highlight)
+- `20251110_partnership_expansion.md` (if partnerships dominate)
+
+**Key Rule**: Title reflects the **actual highlight** of the 2-week period, NOT generic "fortnight update"
+
+## 🔍 **Analysis Process**
+
+### Step 1: Pull Data from Google Sheets
+```python
+# Use google.oauth2.service_account to authenticate
+# Pull last 100 records from "Telegram Chat Logs" worksheet
+# Filter for past 14 days based on "Status date" column
+```
+
+### Step 2: Identify the Main Story
+Analyze contribution types and count:
+- Cacao sourcing activities
+- Infrastructure improvements
+- Community building
+- Business development
+- DAO governance
+
+**The category with the most activity becomes the blog post title/focus**
+
+### Step 3: Content Structure
+```markdown
+# [Highlight Title]: [Key Metric] in Two Weeks
+
+**Meta Description**: Brief summary with key numbers
+
+**SEO Title**: SEO-friendly version
+
+**URL Slug**: url-friendly-slug
+
+## [Opening Section - Lead with the main story]
+
+## 📊 By the Numbers
+- Total contributions logged by AI bot
+- Key metrics for main story
+- Supporting statistics
+
+## 🌱 [Main Story Section]
+### [Subsection 1]
+### [Subsection 2]
+
+## 🛠️ [Supporting Story 1]
+
+## 🤝 [Supporting Story 2]
+
+## 💡 What This Activity Means
+### Transparent Contribution Tracking (explain Edgar's role)
+### [Main Story] in Action
+
+## 🔮 Looking Ahead
+
+## 🎯 Key Takeaways
+**For Contributors:**
+**For Observers:**
+**For [relevant stakeholder]:**
+
+## 📢 How to Follow Along
+[Link to Telegram]
+[Link to public ledger]
+
+## Conclusion
+[Tie it back to main story]
+
+---
+**Next Update**: [Date] - highlighting the next major milestone
+**TDG Airdrop**: Next expected distribution: June 21, 2025
+---
+*Compiled from [X] contributions logged by Edgar in Telegram between [dates]*
+**About TrueSight DAO**: [Description with Telegram link]
+```
+
+## ✅ **Content Guidelines**
+
+### DO:
+- ✅ Lead with the main story (highest activity category)
+- ✅ Use specific numbers (26 sourcing activities, 100 contributions, etc.)
+- ✅ Clarify Edgar is the AI tracking bot, not a contributor
+- ✅ Link to Telegram (https://t.me/truesightdao) and public ledger
+- ✅ Focus on what **community members** did, not what Edgar did
+- ✅ Make phrases clickable URLs where appropriate
+
+### DON'T:
+- ❌ Use generic titles like "Fortnight Update" or "Bi-Weekly Update"
+- ❌ Say "Edgar attended" or "Edgar did [activity]"
+- ❌ Claim events happened that didn't (verify from actual data)
+- ❌ Include marketing fluff - stick to actual logged activity
+- ❌ Forget to link Telegram and public ledger multiple times
+
+## 🔗 **Key Links to Include**
+- Telegram: https://t.me/truesightdao
+- Bot: https://t.me/truesight_tdg_bot
+- Public Ledger: https://docs.google.com/spreadsheets/d/1qbZZhf-_7xzmDTriaJVWj6OZshyQsFkdsAV8-pyzASQ
+
+## 📅 **Publishing Cadence**
+- **Every 2 weeks** (bi-weekly)
+- Pull data from past 14 days
+- Publish within 1-2 days after period ends
+- Next update date should be mentioned in each post
+
+## 🎯 **Success Criteria**
+- ✅ Title reflects actual highlight, not generic date
+- ✅ Edgar correctly described as AI bot throughout
+- ✅ All claims are factually correct based on logged data
+- ✅ Multiple clickable links to Telegram and ledger
+- ✅ File named with YYYYMMDD_highlight_title.md format
+- ✅ Specific numbers and metrics throughout
+- ✅ Clear separation between what community members did vs what Edgar logged
+
+---
+
+**Remember**: These blog posts demonstrate TrueSight DAO's transparency. Every claim should be verifiable in the public Telegram logs and Google Sheets ledger.
