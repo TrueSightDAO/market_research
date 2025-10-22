@@ -17,8 +17,12 @@ content_schedule/
 ├── CURSOR_AI_GUIDE.md                      # Instagram content management guide
 ├── BLOG_SCHEDULE_GUIDE.md                  # Blog content management guide ⭐ NEW
 ├── FEEDBACK_WORKFLOW.md                    # Manual feedback integration guide
+├── VOICE_FEEDBACK_SETUP.md                 # Voice feedback via iPhone/Siri guide 🎤 NEW
 ├── env.example                             # Environment variables template
 ├── google_credentials.json                 # Google Sheets API credentials (not in repo)
+├── google_apps_scripts/                    # Google Apps Script files 🎤 NEW
+│   ├── README.md                           # Scripts documentation
+│   └── voice_feedback_capture.gs           # Voice-to-text feedback API
 │
 ├── instagram_hashtags.csv                  # Comprehensive hashtag database
 ├── agroverse_schedule_till_easter_cleaned.csv  # Instagram content schedule
@@ -179,6 +183,32 @@ The `sync_hashtags.py` script:
 3. Clears existing content in "Hashtag suggestions" tab
 4. Uploads new data with formatting and auto-resized columns
 5. Provides confirmation and link to updated sheet
+
+### Voice Feedback Capture 🎤 NEW
+
+The `google_apps_scripts/voice_feedback_capture.gs` script enables **hands-free content idea capture**:
+
+**Workflow**:
+1. Say: *"Hey Siri, add feedback"*
+2. Speak your content idea
+3. Automatically added to "Feedback on Content" sheet with timestamp
+4. Review and mark status (INCORPORATED, PENDING, REJECTED) later
+
+**Features**:
+- ✅ Voice-to-text via iPhone Siri
+- ✅ Completely hands-free
+- ✅ Works while driving, cooking, or anywhere
+- ✅ No app switching or typing needed
+- ✅ Offline support (queues until online)
+- ✅ Automatic timestamping
+
+**Setup**: See **[VOICE_FEEDBACK_SETUP.md](./VOICE_FEEDBACK_SETUP.md)** for complete iPhone Shortcuts + Google Apps Script deployment guide.
+
+**Use Cases**:
+- Capture ideas while watching competitor content
+- Record thoughts during farm visits
+- Note customer comments in real-time
+- Brainstorm while exercising or commuting
 
 ## 🛠️ Dependencies
 

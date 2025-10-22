@@ -124,6 +124,13 @@ def sync_blog_schedule():
     print(f"✅ Generated primary keys for {len(df)} rows")
     print("ℹ️  Primary keys are generated deterministically - no need to save CSV")
     
+    # Sort by Publish Date in ascending order
+    print("📅 Sorting by Publish Date (ascending order)...")
+    df['Publish Date'] = pd.to_numeric(df['Publish Date'], errors='coerce')
+    df = df.sort_values('Publish Date', ascending=True)
+    df = df.reset_index(drop=True)
+    print(f"✅ Sorted {len(df)} entries by date")
+    
     # Connect to Google Sheets
     spreadsheet = connect_to_sheets()
     
