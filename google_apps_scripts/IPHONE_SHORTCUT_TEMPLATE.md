@@ -28,12 +28,17 @@ Since iPhone Shortcuts can't be exported as text files easily, follow these exac
 - Tap to add
 - Configure:
   ```
-  URL: YOUR_DEPLOYMENT_URL?feedback=FeedbackText
+  URL: YOUR_DEPLOYMENT_URL?feedback=FeedbackText&signature=YourPublicKey
   ```
   - Replace `YOUR_DEPLOYMENT_URL` with your actual Web App URL from Google Apps Script
   - The `FeedbackText` should be inserted as a variable (blue bubble)
+  - For `YourPublicKey`: You can either:
+    - **Option A** (Recommended): Manually paste your public key from create_signature.html
+    - **Option B**: Leave empty if you don't need signature tracking for voice feedback
   - Method: **GET**
   - Headers: (none)
+
+**Note**: If using Option A, you'll need to update the shortcut URL with your actual public key after creating your digital signature. For most voice feedback use cases, Option B (without signature) works fine since you'll manually review in Google Sheets anyway.
 
 #### 4. **Get Dictionary from Input**
 - Search: "Get Dictionary"
@@ -93,28 +98,28 @@ Since iPhone Shortcuts can't be exported as text files easily, follow these exac
 ## 📋 Shortcut Configuration Visual Guide
 
 ```
-┌─────────────────────────────────────┐
-│  Dictate Text                       │
-│  ↓ (Dictated Text)                  │
-├─────────────────────────────────────┤
-│  Set Variable: FeedbackText         │
-│  ↓ (FeedbackText)                   │
-├─────────────────────────────────────┤
-│  Get Contents of URL                │
-│  URL: YOUR_URL?feedback=FeedbackText│
-│  Method: GET                        │
-│  ↓ (Contents of URL)                │
-├─────────────────────────────────────┤
-│  Get Dictionary from Input          │
-│  ↓ (Dictionary)                     │
-├─────────────────────────────────────┤
-│  Get Dictionary Value               │
-│  Get: "message"                     │
-│  ↓ (Dictionary Value)               │
-├─────────────────────────────────────┤
-│  Show Notification                  │
-│  Text: Dictionary Value             │
-└─────────────────────────────────────┘
+┌──────────────────────────────────────────────────────────┐
+│  Dictate Text                                            │
+│  ↓ (Dictated Text)                                       │
+├──────────────────────────────────────────────────────────┤
+│  Set Variable: FeedbackText                              │
+│  ↓ (FeedbackText)                                        │
+├──────────────────────────────────────────────────────────┤
+│  Get Contents of URL                                     │
+│  URL: YOUR_URL?feedback=FeedbackText&signature=YOUR_KEY  │
+│  Method: GET                                             │
+│  ↓ (Contents of URL)                                     │
+├──────────────────────────────────────────────────────────┤
+│  Get Dictionary from Input                               │
+│  ↓ (Dictionary)                                          │
+├──────────────────────────────────────────────────────────┤
+│  Get Dictionary Value                                    │
+│  Get: "message"                                          │
+│  ↓ (Dictionary Value)                                    │
+├──────────────────────────────────────────────────────────┤
+│  Show Notification                                       │
+│  Text: Dictionary Value                                  │
+└──────────────────────────────────────────────────────────┘
 ```
 
 ---

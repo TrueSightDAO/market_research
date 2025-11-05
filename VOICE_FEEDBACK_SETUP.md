@@ -93,7 +93,23 @@ Capture content ideas and feedback using your iPhone + Siri, automatically saved
 
 ## 🎯 Usage Examples
 
-### Method 1: Siri (Hands-Free)
+### Method 1: Web Interface (Easiest to Start)
+```
+1. Go to: https://dapp.truesight.me/submit_feedback.html
+2. Login with your digital signature
+3. Type or paste your feedback
+4. Click "Submit Feedback"
+5. See next steps and track incorporation
+```
+
+**Pros**: 
+- No setup required
+- Works on any device
+- Shows clear next steps after submission
+- Can type longer, detailed feedback
+- Includes helpful examples
+
+### Method 2: Siri (Hands-Free)
 ```
 You: "Hey Siri, add feedback"
 Siri: "What would you like to say?"
@@ -101,13 +117,13 @@ You: "Winter wellness content idea: create a carousel about cacao and seasonal a
 Siri: [Shows notification] "✅ Feedback saved!"
 ```
 
-### Method 2: Widget (One Tap)
+### Method 3: Widget (One Tap)
 1. Long-press home screen → Add Widget
 2. Find **Shortcuts** widget
 3. Add your "Add Feedback" shortcut
 4. Now just tap widget → speak → done!
 
-### Method 3: From Shortcuts App
+### Method 4: From Shortcuts App
 1. Open Shortcuts app
 2. Tap "Add Feedback"
 3. Speak your idea
@@ -124,6 +140,7 @@ All feedback appears in:
 - **Column A (Feedback)**: Your voice-to-text idea
 - **Column B (Status)**: Empty initially - mark as "INCORPORATED", "PENDING", "REJECTED"
 - **Column C (Timestamp)**: Automatically added
+- **Column D (Digital Signature)**: Public key of submitter for verification and attribution
 
 ---
 

@@ -48,6 +48,8 @@ This directory contains Google Apps Script files that integrate with the content
 
 ```
 Voice Idea → Siri → Shortcuts → Apps Script → Google Sheets
+                        ↓                              ↓
+                  (with signature)          [Feedback, Status, Timestamp, Signature]
                                                      ↓
                                           sync_feedback.py
                                                      ↓
@@ -57,6 +59,12 @@ Voice Idea → Siri → Shortcuts → Apps Script → Google Sheets
                                                      ↓
                                      Content Schedule Integration
 ```
+
+**Sheet Structure** (after v2.0 update):
+- Column A: Feedback
+- Column B: Status (INCORPORATED, PENDING, REJECTED)
+- Column C: Timestamp
+- Column D: Digital Signature (for verification & attribution)
 
 ---
 

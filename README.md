@@ -191,8 +191,14 @@ The `google_apps_scripts/voice_feedback_capture.gs` script enables **hands-free 
 **Workflow**:
 1. Say: *"Hey Siri, add feedback"*
 2. Speak your content idea
-3. Automatically added to "Feedback on Content" sheet with timestamp
+3. Automatically added to "Feedback on Content" sheet with timestamp and digital signature
 4. Review and mark status (INCORPORATED, PENDING, REJECTED) later
+
+**Sheet Columns**:
+- Column A: Feedback text
+- Column B: Status (INCORPORATED, PENDING, REJECTED)
+- Column C: Timestamp
+- Column D: Digital Signature (for verification & attribution)
 
 **Features**:
 - ✅ Voice-to-text via iPhone Siri

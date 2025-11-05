@@ -1,17 +1,31 @@
 /**
- * Voice Feedback Capture for iPhone Siri + Shortcuts
- * 
- * This Google Apps Script creates a webhook endpoint that receives voice feedback
- * from iPhone (via Siri/Shortcuts) and automatically appends it to the
- * "Feedback on Content" sheet in your Google Sheets.
- * 
+ * File: market_research/google_apps_scripts/voice_feedback_capture.gs
  * Repository: https://github.com/TrueSightDAO/market_research
- * Spreadsheet: https://docs.google.com/spreadsheets/d/1ghZXeMqFq97Vl6yLKrtDmMQdQkd-4EN5yQs34NA_sBQ
+ * 
+ * Description: Webhook endpoint that receives content feedback from iPhone Siri/Shortcuts
+ * or web interface (dapp/submit_feedback.html) and automatically appends to the
+ * "Feedback on Content" sheet for content team review and incorporation tracking.
  */
 
-// Configuration
+// Deployment URL: https://script.google.com/macros/s/AKfycbz3FQgXLaEc4KNq9fhCCFbf677OIcEMjVq_HjcgttMfCNWk7QWaCeTEq0xc5aRRbduFdg/exec
+
+// ============================================================================
+// CONSTANTS
+// ============================================================================
+
+// Spreadsheet configuration
 const SPREADSHEET_ID = '1ghZXeMqFq97Vl6yLKrtDmMQdQkd-4EN5yQs34NA_sBQ';
 const SHEET_NAME = 'Feedback on Content';
+
+// Column indices for Feedback sheet (0-based)
+const FEEDBACK_COL = 0;           // Column A - The feedback text
+const STATUS_COL = 1;             // Column B - Status (INCORPORATED, PENDING, REJECTED)
+const TIMESTAMP_COL = 2;          // Column C - Timestamp when feedback was submitted
+const SIGNATURE_COL = 3;          // Column D - Digital signature of submitter
+
+// ============================================================================
+// MAIN FUNCTIONS
+// ============================================================================
 
 /**
  * Handles POST requests from iPhone Shortcuts
@@ -24,8 +38,9 @@ function doPost(e) {
     Logger.log('Received feedback request');
     Logger.log('Parameters: ' + JSON.stringify(e.parameter));
     
-    // Get feedback from request
+    // Get feedback and signature from request
     const feedback = e.parameter.feedback || e.postData?.contents;
+    const signature = e.parameter.signature || '';
     
     if (!feedback) {
       return ContentService.createTextOutput(
@@ -54,8 +69,8 @@ function doPost(e) {
     const timestamp = new Date();
     const status = ''; // Empty status - will be filled manually later
     
-    // Append row: [Feedback, Status, Timestamp]
-    sheet.appendRow([feedback, status, timestamp]);
+    // Append row: [Feedback, Status, Timestamp, Digital Signature]
+    sheet.appendRow([feedback, status, timestamp, signature]);
     
     Logger.log('Feedback added successfully: ' + feedback);
     
@@ -101,22 +116,9 @@ function doGet(e) {
   return doPost(e);
 }
 
-/**
- * Test function to verify script works
- * Run this from the Apps Script editor to test
- */
-function testAddFeedback() {
-  const testFeedback = 'Test feedback from script editor - ' + new Date().toLocaleString();
-  
-  const mockEvent = {
-    parameter: {
-      feedback: testFeedback
-    }
-  };
-  
-  const result = doPost(mockEvent);
-  Logger.log('Test result: ' + result.getContent());
-}
+// ============================================================================
+// UTILITY FUNCTIONS
+// ============================================================================
 
 /**
  * Initialize the feedback sheet with headers if needed
@@ -134,14 +136,14 @@ function initializeFeedbackSheet() {
     }
     
     // Check if headers exist
-    const firstRow = sheet.getRange(1, 1, 1, 3).getValues()[0];
+    const firstRow = sheet.getRange(1, 1, 1, 4).getValues()[0];
     
-    if (firstRow[0] !== 'Feedback' || firstRow[1] !== 'Status' || firstRow[2] !== 'Timestamp') {
+    if (firstRow[0] !== 'Feedback' || firstRow[1] !== 'Status' || firstRow[2] !== 'Timestamp' || firstRow[3] !== 'Digital Signature') {
       // Set headers
-      sheet.getRange(1, 1, 1, 3).setValues([['Feedback', 'Status', 'Timestamp']]);
+      sheet.getRange(1, 1, 1, 4).setValues([['Feedback', 'Status', 'Timestamp', 'Digital Signature']]);
       
       // Format headers
-      sheet.getRange(1, 1, 1, 3)
+      sheet.getRange(1, 1, 1, 4)
         .setFontWeight('bold')
         .setBackground('#4285f4')
         .setFontColor('#ffffff');
@@ -150,6 +152,7 @@ function initializeFeedbackSheet() {
       sheet.setColumnWidth(1, 500); // Feedback column
       sheet.setColumnWidth(2, 150); // Status column
       sheet.setColumnWidth(3, 180); // Timestamp column
+      sheet.setColumnWidth(4, 400); // Digital Signature column
       
       // Freeze header row
       sheet.setFrozenRows(1);
@@ -166,4 +169,103 @@ function initializeFeedbackSheet() {
     return ContentService.createTextOutput('❌ Error: ' + error.message);
   }
 }
+
+// ============================================================================
+// TEST METHODS
+// ============================================================================
+
+/**
+ * Test method for adding feedback via doPost
+ * Call this function from Google Apps Script editor to test feedback submission
+ */
+function testAddFeedback() {
+  Logger.log('===== Testing testAddFeedback =====');
+  
+  const testFeedback = 'Test feedback from script editor - ' + new Date().toLocaleString();
+  const testSignature = 'TEST_SIGNATURE_' + Math.random().toString(36).substring(7);
+  
+  const mockEvent = {
+    parameter: {
+      feedback: testFeedback,
+      signature: testSignature
+    }
+  };
+  
+  const result = doPost(mockEvent);
+  const response = JSON.parse(result.getContent());
+  
+  Logger.log('Test result: ' + JSON.stringify(response));
+  
+  if (response.status === 'success') {
+    Logger.log('✅ TEST PASSED - Feedback added successfully');
+    Logger.log('Feedback: ' + response.feedback);
+    Logger.log('Timestamp: ' + response.timestamp);
+  } else {
+    Logger.log('❌ TEST FAILED - ' + response.message);
+  }
+}
+
+/**
+ * Test method for GET request (Siri Shortcuts simulation)
+ * Call this function from Google Apps Script editor to test GET endpoint
+ */
+function testGetRequest() {
+  Logger.log('===== Testing testGetRequest (Siri Simulation) =====');
+  
+  const testFeedback = 'Test from Siri - Winter wellness carousel idea';
+  const testSignature = 'SIRI_TEST_' + Math.random().toString(36).substring(7);
+  
+  const mockEvent = {
+    parameter: {
+      feedback: testFeedback,
+      signature: testSignature
+    }
+  };
+  
+  const result = doGet(mockEvent);
+  const response = JSON.parse(result.getContent());
+  
+  Logger.log('Test result: ' + JSON.stringify(response));
+  
+  if (response.status === 'success') {
+    Logger.log('✅ TEST PASSED - GET request handled correctly');
+  } else {
+    Logger.log('❌ TEST FAILED - ' + response.message);
+  }
+}
+
+/**
+ * Test method for sheet initialization
+ * Call this function from Google Apps Script editor to verify sheet setup
+ */
+function testInitializeSheet() {
+  Logger.log('===== Testing testInitializeSheet =====');
+  
+  const result = initializeFeedbackSheet();
+  Logger.log('Initialization result: ' + result.getContent());
+  
+  // Verify headers were created
+  try {
+    const spreadsheet = SpreadsheetApp.openById(SPREADSHEET_ID);
+    const sheet = spreadsheet.getSheetByName(SHEET_NAME);
+    const headers = sheet.getRange(1, 1, 1, 4).getValues()[0];
+    
+    Logger.log('Headers: ' + JSON.stringify(headers));
+    
+    if (headers[FEEDBACK_COL] === 'Feedback' && 
+        headers[STATUS_COL] === 'Status' && 
+        headers[TIMESTAMP_COL] === 'Timestamp' &&
+        headers[SIGNATURE_COL] === 'Digital Signature') {
+      Logger.log('✅ TEST PASSED - Headers initialized correctly');
+    } else {
+      Logger.log('❌ TEST FAILED - Headers do not match expected values');
+    }
+  } catch (e) {
+    Logger.log('❌ TEST FAILED - Error verifying headers: ' + e.message);
+  }
+}
+
+// ============================================================================
+// END OF TEST METHODS
+// ============================================================================
 
