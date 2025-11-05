@@ -152,13 +152,6 @@ def main():
     print(f"   Length: {len(clean_markdown)} characters")
     print(f"   Words: ~{len(clean_markdown.split())} words")
     
-    # Confirm update
-    response = input(f"\nUpdate draft {draft_id} with this content? (yes/no): ")
-    
-    if response.lower() not in ['yes', 'y']:
-        print("\n❌ Cancelled")
-        return
-    
     # Update the draft
     print(f"\n🔄 Updating Wix draft...")
     
