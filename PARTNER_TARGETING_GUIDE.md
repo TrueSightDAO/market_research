@@ -50,6 +50,7 @@ Based on successful partnerships at [agroverse.shop/partners](https://www.agrove
 - 🌟 Boutique/premium positioning
 - 🌟 Local/community hub
 - 🌟 Conscious consumer base
+- 🌟 **Tibetan prayer flags or Buddha statues** - Strong indicator of spiritual/meditation focus, perfect alignment with ceremonial cacao
 
 **Exclude:**
 - ❌ Mass market chocolate retailers
@@ -89,7 +90,9 @@ When planning a route (e.g., San Francisco → Quartzite, Arizona):
    - Include: Name, Address, City, State
    - Add notes: Type of shop, why it fits
 
-### Example Route: SF → Quartzite
+### Example Routes
+
+#### Route 1: SF → Quartzite (Direct)
 
 **Cities in Order:**
 1. San Francisco, CA
@@ -107,6 +110,43 @@ When planning a route (e.g., San Francisco → Quartzite, Arizona):
 13. Quartzsite, AZ
 
 **Note:** Quartzsite is famous for gem shows - many vendors during show season. Target permanent retail spaces.
+
+**Google Sheet:** "Hit List" worksheet
+
+---
+
+#### Route 2: SF → LA → Slab City → Quartzite
+
+**Cities in Order:**
+1. San Francisco, CA
+2. San Jose, CA
+3. Gilroy, CA
+4. Salinas, CA
+5. Monterey, CA
+6. Big Sur, CA
+7. San Luis Obispo, CA
+8. Paso Robles, CA
+9. Morro Bay, CA
+10. Santa Barbara, CA
+11. Ventura, CA
+12. Los Angeles, CA
+13. Palm Springs, CA
+14. Indio, CA
+15. Niland, CA (near Slab City)
+16. Slab City, CA
+17. Blythe, CA
+18. Quartzsite, AZ
+
+**High-Priority Areas:**
+- **Los Angeles:** Multiple neighborhoods (Melrose/Fairfax, Venice/Santa Monica, Silver Lake/Echo Park) have many metaphysical shops
+- **Santa Barbara:** Upscale coastal city with spiritual/wellness focus
+- **San Luis Obispo:** College town with active downtown
+- **Palm Springs:** Desert resort town with spiritual community
+- **Quartzsite:** Gem shows attract many vendors (target permanent shops)
+
+**Google Sheet:** "LA Route" worksheet
+
+**Note:** This route offers more opportunities in major cities (LA, Santa Barbara) but requires more research to identify specific shops.
 
 ---
 
@@ -159,6 +199,7 @@ Before adding any shop to the target list, verify these criteria:
 - [ ] Community/consciousness focus
 - [ ] Spiritual/wellness orientation
 - [ ] Aligns with ceremonial cacao positioning
+- [ ] **Visual indicators:** Tibetan prayer flags or Buddha statues present (strong positive signal for meditation/spiritual focus)
 
 **4. Retail Capability**
 - [ ] Has retail space
@@ -391,6 +432,7 @@ For each city, try these searches:
 - ❌ **Crystal/Stone-only shops** - Exclude if they ONLY sell crystals/stones
 - ❌ **Candle-only shops** - Exclude if they ONLY sell candles
 - ✅ **Multi-product shops** - Include if they sell crystals/stones/candles PLUS other products (books, herbs, oils, wellness items, etc.)
+- ✅ **Tibetan prayer flags or Buddha statues** - Strong positive indicator for meditation/spiritual focus, excellent fit for ceremonial cacao
 
 ---
 

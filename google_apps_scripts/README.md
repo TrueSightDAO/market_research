@@ -23,6 +23,29 @@ This directory contains Google Apps Script files that integrate with the content
 
 ---
 
+### 2. `find_nearby_stores.gs`
+
+**Purpose**: Find the top 10 stores (with status "Contacted") nearest to a given location.
+
+**Spreadsheet**: [20251104 - holistic wellness hit list](https://docs.google.com/spreadsheets/d/1eiqZr3LW-qEI6Hmy0Vrur_8flbRwxwA7jXVrbUnHbvc/edit)  
+**Sheet Name**: "Hit List"
+
+**Features**:
+- ✅ Distance calculation using Haversine formula
+- ✅ Filters stores by status "Contacted"
+- ✅ Returns top N stores ordered by distance
+- ✅ Web API (GET/POST) for easy integration
+- ✅ Test function included
+
+**Setup**: See [FIND_NEARBY_STORES_README.md](./FIND_NEARBY_STORES_README.md)
+
+**Usage Example**:
+```
+https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec?lat=37.7749&lng=-122.4194&limit=10
+```
+
+---
+
 ## 🚀 Quick Start
 
 1. **Copy script** to Google Apps Script editor
