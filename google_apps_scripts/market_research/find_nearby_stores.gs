@@ -163,6 +163,15 @@ function findNearbyStores(userLat, userLng, limit, statusFilter) {
     const notesIdx = headers.indexOf("Notes");
     const contactDateIdx = headers.indexOf("Contact Date");
     const contactMethodIdx = headers.indexOf("Contact Method");
+    const followUpDateIdx = headers.indexOf("Follow Up Date");
+    const contactPersonIdx = headers.indexOf("Contact Person");
+    const ownerNameIdx = headers.indexOf("Owner Name");
+    const referralIdx = headers.indexOf("Referral");
+    const productInterestIdx = headers.indexOf("Product Interest");
+    const followUpEventLinkIdx = headers.indexOf("Follow Up Event Link");
+    const visitDateIdx = headers.indexOf("Visit Date");
+    const outcomeIdx = headers.indexOf("Outcome");
+    const salesNotesIdx = headers.indexOf("Sales Process Notes");
     const latIdx = headers.indexOf("Latitude");
     const lngIdx = headers.indexOf("Longitude");
     
@@ -234,6 +243,15 @@ function findNearbyStores(userLat, userLng, limit, statusFilter) {
         notes: notesIdx >= 0 ? (row[notesIdx] || "") : "",
         contact_date: contactDateIdx >= 0 ? (row[contactDateIdx] || "") : "",
         contact_method: contactMethodIdx >= 0 ? (row[contactMethodIdx] || "") : "",
+        follow_up_date: followUpDateIdx >= 0 ? (row[followUpDateIdx] || "") : "",
+        contact_person: contactPersonIdx >= 0 ? (row[contactPersonIdx] || "") : "",
+        owner_name: ownerNameIdx >= 0 ? (row[ownerNameIdx] || "") : "",
+        referral: referralIdx >= 0 ? (row[referralIdx] || "") : "",
+        product_interest: productInterestIdx >= 0 ? (row[productInterestIdx] || "") : "",
+        follow_up_event_link: followUpEventLinkIdx >= 0 ? (row[followUpEventLinkIdx] || "") : "",
+        visit_date: visitDateIdx >= 0 ? (row[visitDateIdx] || "") : "",
+        outcome: outcomeIdx >= 0 ? (row[outcomeIdx] || "") : "",
+        sales_process_notes: salesNotesIdx >= 0 ? (row[salesNotesIdx] || "") : "",
         latitude: storeLat,
         longitude: storeLng,
         distance: Math.round(distance * 10) / 10 // Round to 1 decimal place
