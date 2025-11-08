@@ -85,6 +85,7 @@
 // Constants for spreadsheet ID and sheet name
 const SPREADSHEET_ID = '1eiqZr3LW-qEI6Hmy0Vrur_8flbRwxwA7jXVrbUnHbvc';
 const SHEET_NAME = 'Hit List';
+const DAPP_REMARKS_SHEET = 'DApp Remarks';
 
 /**
  * Calculate distance between two points using Haversine formula
@@ -272,6 +273,53 @@ function findNearbyStores(userLat, userLng, limit, statusFilter) {
   }
 }
 
+function ensureDappRemarksSheet_(spreadsheet) {
+  let sheet = spreadsheet.getSheetByName(DAPP_REMARKS_SHEET);
+  const headers = [
+    'Submission ID',
+    'Shop Name',
+    'Status',
+    'Remarks',
+    'Submitted By',
+    'Submitted At',
+    'Processed',
+    'Processed At'
+  ];
+
+  if (!sheet) {
+    sheet = spreadsheet.insertSheet(DAPP_REMARKS_SHEET);
+    sheet.appendRow(headers);
+    return sheet;
+  }
+
+  const existingHeaders = sheet.getRange(1, 1, 1, headers.length).getValues()[0];
+  if (existingHeaders.join('') !== headers.join('')) {
+    sheet.clear();
+    sheet.appendRow(headers);
+  }
+
+  return sheet;
+}
+
+function logDappSubmission_(spreadsheet, shopName, status, remarks, submittedBy, processed) {
+  const sheet = ensureDappRemarksSheet_(spreadsheet);
+  const submissionId = Utilities.getUuid();
+  const submittedAt = new Date();
+  const processedFlag = processed ? 'Yes' : 'No';
+  const processedAt = processed ? submittedAt : '';
+  sheet.appendRow([
+    submissionId,
+    shopName || '',
+    status || '',
+    remarks || '',
+    submittedBy || '',
+    submittedAt,
+    processedFlag,
+    processedAt
+  ]);
+  return submissionId;
+}
+
 /**
  * Update store status in the spreadsheet
  * @param {string} shopName - Name of the shop to update
@@ -279,7 +327,7 @@ function findNearbyStores(userLat, userLng, limit, statusFilter) {
  * @param {string} digitalSignature - Digital signature (public key) of the person making the change
  * @return {Object} Result object with success/error
  */
-function updateStoreStatus(shopName, newStatus, digitalSignature) {
+function updateStoreStatus(shopName, newStatus, digitalSignature, remarks, submittedBy) {
   try {
     const spreadsheet = SpreadsheetApp.openById(SPREADSHEET_ID);
     const sheet = spreadsheet.getSheetByName(SHEET_NAME);
@@ -350,12 +398,85 @@ function updateStoreStatus(shopName, newStatus, digitalSignature) {
     if (!found) {
       throw new Error(`Shop "${shopName}" not found`);
     }
+
+    const submissionId = logDappSubmission_(spreadsheet, shopName, newStatus, remarks, digitalSignature || submittedBy, false);                                
     
-    return { success: true, message: `Status updated to "${newStatus}"` };
+    return {
+      success: true,
+      message: `Status updated to "${newStatus}"`,
+      submissionId: submissionId
+    };
   } catch (error) {
     Logger.log("Error in updateStoreStatus: " + error.toString());
     throw error;
   }
+}
+
+function addNewStore(storeData) {
+  const spreadsheet = SpreadsheetApp.openById(SPREADSHEET_ID);
+  const sheet = spreadsheet.getSheetByName(SHEET_NAME);
+  if (!sheet) {
+    throw new Error(`Sheet "${SHEET_NAME}" not found`);
+  }
+
+  const data = sheet.getDataRange().getValues();
+  if (!data || data.length === 0) {
+    throw new Error(`Sheet "${SHEET_NAME}" does not have a header row.`);
+  }
+
+  const headers = data[0];
+  const headerIndex = {};
+  headers.forEach((header, idx) => {
+    headerIndex[header] = idx;
+  });
+
+  const row = new Array(headers.length).fill('');
+  function setValue(header, value) {
+    if (headerIndex.hasOwnProperty(header) && value !== undefined && value !== null) {
+      row[headerIndex[header]] = value;
+    }
+  }
+
+  const now = new Date();
+  const submittedBy = storeData.submittedBy || 'DApp';
+  const baseNote = `Added via DApp on ${now.toISOString()}${submittedBy ? ' by ' + submittedBy : ''}.`;
+
+  const latValue = storeData.latitude ? parseFloat(storeData.latitude) : '';
+  const lngValue = storeData.longitude ? parseFloat(storeData.longitude) : '';
+
+  const salesNotes = [];
+  if (storeData.remarks) {
+    salesNotes.push(`[${now.toISOString()} | ${submittedBy}] ${storeData.remarks}`);
+  }
+  salesNotes.push(`[${now.toISOString()} | ${submittedBy}] Added via DApp.`);
+
+  setValue('Shop Name', storeData.shopName);
+  setValue('Status', storeData.status || 'Research');
+  setValue('Priority', storeData.priority || 'Medium');
+  setValue('Address', storeData.address || '');
+  setValue('City', storeData.city || '');
+  setValue('State', storeData.state || '');
+  setValue('Shop Type', storeData.shopType || '');
+  setValue('Phone', storeData.phone || '');
+  setValue('Website', storeData.website || '');
+  setValue('Instagram', storeData.instagram || '');
+  setValue('Notes', baseNote);
+  setValue('Sales Process Notes', salesNotes.join('\n'));
+  setValue('Latitude', !isNaN(latValue) ? latValue : '');
+  setValue('Longitude', !isNaN(lngValue) ? lngValue : '');
+  setValue('Contact Date', storeData.contactDate || '');
+  setValue('Contact Method', storeData.contactMethod || '');
+  setValue('Status Updated By', submittedBy);
+  setValue('Status Updated Date', now);
+
+  sheet.appendRow(row);
+
+  const submissionId = logDappSubmission_(spreadsheet, storeData.shopName, storeData.status, storeData.remarks, submittedBy, true);
+  return {
+    success: true,
+    message: `Added new store "${storeData.shopName}"`,
+    submissionId: submissionId
+  };
 }
 
 /**
@@ -365,11 +486,57 @@ function updateStoreStatus(shopName, newStatus, digitalSignature) {
  */
 function doGet(e) {
   try {
+    if (e.parameter.action === 'add_store') {
+      const shopName = (e.parameter.shop_name || '').trim();
+      if (!shopName) {
+        return ContentService
+          .createTextOutput(JSON.stringify({
+            success: false,
+            error: "Missing parameters",
+            message: "shop_name is required to add a store"
+          }))
+          .setMimeType(ContentService.MimeType.JSON);
+      }
+
+      const storeData = {
+        shopName: shopName,
+        status: (e.parameter.status || 'Research').trim(),
+        remarks: (e.parameter.remarks || '').trim(),
+        address: (e.parameter.address || '').trim(),
+        city: (e.parameter.city || '').trim(),
+        state: (e.parameter.state || '').trim(),
+        phone: (e.parameter.phone || '').trim(),
+        website: (e.parameter.website || '').trim(),
+        instagram: (e.parameter.instagram || '').trim(),
+        shopType: (e.parameter.shop_type || '').trim(),
+        latitude: (e.parameter.latitude || '').trim(),
+        longitude: (e.parameter.longitude || '').trim(),
+        submittedBy: (e.parameter.submitted_by || e.parameter.digital_signature || '').trim()
+      };
+
+      let salesNotes = '';
+      if (storeData.remarks) {
+        salesNotes = `[${new Date().toISOString()} | ${storeData.submittedBy || 'DApp'}] ${storeData.remarks}`;
+      }
+      storeData.salesNotes = salesNotes;
+
+      const result = addNewStore(storeData);
+      return ContentService
+        .createTextOutput(JSON.stringify({
+          success: true,
+          message: result.message,
+          submission_id: result.submissionId || ''
+        }))
+        .setMimeType(ContentService.MimeType.JSON);
+    }
+
     // Check if this is a status update request
     if (e.parameter.action === 'update_status') {
       const shopName = e.parameter.shop_name;
       const newStatus = e.parameter.new_status;
-      const digitalSignature = e.parameter.digital_signature || e.parameter.signature || e.parameter.public_key;
+      const digitalSignature = e.parameter.digital_signature || e.parameter.signature || e.parameter.public_key;                                                
+      const remarks = e.parameter.remarks || '';
+      const submittedBy = e.parameter.submitted_by || digitalSignature || '';
       
       if (!shopName || !newStatus) {
         return ContentService
@@ -382,12 +549,13 @@ function doGet(e) {
       }
       
       // Update the status (digitalSignature is optional but recommended)
-      const result = updateStoreStatus(shopName, newStatus, digitalSignature);
+      const result = updateStoreStatus(shopName, newStatus, digitalSignature, remarks, submittedBy);
       
       return ContentService
         .createTextOutput(JSON.stringify({
           success: true,
-          message: result.message
+          message: result.message,
+          submission_id: result.submissionId || ''
         }))
         .setMimeType(ContentService.MimeType.JSON);
     }

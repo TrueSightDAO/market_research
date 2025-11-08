@@ -20,6 +20,8 @@ SCOPES = [
     "https://www.googleapis.com/auth/drive"
 ]
 
+DAPP_REMARKS_SHEET = "DApp Remarks"
+
 # ============================================================================
 # CONSOLIDATED HIT LIST - Organized by Region for Easy Daily Planning
 # ============================================================================
@@ -107,13 +109,15 @@ SHOPS = [
     # ========================================================================
     {
         "name": "Infinity Coven",
-        "address": "2827 25th St",
+        "address": "447 Stockton St",
         "city": "San Francisco",
         "state": "CA",
         "type": "Metaphysical/Spiritual",
-        "notes": "Witchy boutique with spells, herbs, books, community workshops. Focus on magic and empowerment. Good fit for cacao in consignment for group rituals.",
+        "phone": "(650) 420-5932",
+        "email": "admin@InfinityCoven.com",
+        "notes": "Witchy boutique with spells, herbs, books, and community workshops near Union Square. Strong magic/empowerment focus—excellent prospect for ceremonial cacao placement.",
         "priority": "High",
-        "status": "Research"
+        "status": "Shortlisted"
     },
     {
         "name": "Paxton Gate",
@@ -150,9 +154,13 @@ SHOPS = [
         "notes": "Smart meditation center with metaphysical shop, wellness services, chakra balancing, holistic healing, sound baths, and meditation classes. Open Tue-Sat 12pm-7pm.",
         "priority": "High",
         "status": "Contacted",
-        "contact_date": "2025-11-05",
-        "contact_method": "Contact form",
-        "sales_notes": ""
+        "contact_date": "2025-11-07",
+        "contact_method": "Drop-off",
+        "visit_date": "2025-11-07",
+        "contact_person": "Chloe (staff)",
+        "owner_name": "Crystal",
+        "product_interest": "Retail cacao display (5 bags on consignment)",
+        "sales_notes": "Dropped off five sample bags with Chloe (staff). Crystal was busy; Chloe will check if they can display the cacao. If not a fit, plan to retrieve the bags. Assume-close approach seemed welcome."
     },
     {
         "name": "Ancient Ways",
@@ -203,6 +211,56 @@ SHOPS = [
         "contact_date": "2025-11-05",
         "contact_method": "Email",
         "sales_notes": ""
+    },
+    {
+        "name": "Mystic Flora Apothecary",
+        "address": "1501 El Camino Real Suite F",
+        "city": "San Mateo",
+        "state": "CA",
+        "type": "Metaphysical/Spiritual",
+        "phone": "(650) 622-4264",
+        "website": "https://www.mysticflora.com/",
+        "instagram": "https://www.instagram.com/mysticflora_apothecary/",
+        "notes": "Animistic, transcultural apothecary offering teas, ritual tools, community practitioner services, and a self-service tea house. Confirm cacao wholesale fit and scheduling interests.",
+        "priority": "Medium",
+        "status": "Research"
+    },
+    {
+        "name": "Tokenz",
+        "address": "530 Main St",
+        "city": "Half Moon Bay",
+        "state": "CA",
+        "type": "Metaphysical/Spiritual",
+        "phone": "(650) 712-8457",
+        "website": "https://www.tokenzhmb.com/",
+        "notes": "Long-running Half Moon Bay boutique (est. 1982) with global imports: masks, statuary, gemstones, incense, bells, gongs, sarongs. Confirm cacao alignment and wholesale interest.",
+        "priority": "Medium",
+        "status": "Research"
+    },
+    {
+        "name": "Garden Apothecary",
+        "address": "601 Main St",
+        "city": "Half Moon Bay",
+        "state": "CA",
+        "type": "Metaphysical/Spiritual",
+        "website": "https://gardenapothecary.com/",
+        "email": "shop@gardenapothecary.com",
+        "notes": "Botanist-formulated skincare/tea apothecary in downtown Half Moon Bay. Organic, small-batch wellness products with in-store workshops and teas. Confirm ceremonial cacao alignment and wholesale options.",
+        "priority": "Medium",
+        "status": "Research"
+    },
+    {
+        "name": "Go Ask Alice",
+        "address": "1125 Pacific Ave",
+        "city": "Santa Cruz",
+        "state": "CA",
+        "type": "Metaphysical/Spiritual",
+        "phone": "(831) 469-4372",
+        "website": "https://www.goaskalicesantacruz.com/",
+        "email": "info@goaskalice.org",
+        "notes": "Herbal apothecary and ritual boutique (teas, elixirs, tarot/oracle, decor) open daily 11am-8pm. In-store services include tarot and astrology readings (schedule via practitioners). Verify interest in ceremonial cacao and wholesale options.",
+        "priority": "Medium",
+        "status": "Research"
     },
     {
         "name": "Moonstone Metaphysical",
@@ -699,6 +757,43 @@ def create_shop_list_sheet(client, sheet_name="Hit List"):
     
     return worksheet
 
+def ensure_dapp_remarks_sheet(client):
+    """Ensure the DApp remarks worksheet exists with headers"""
+    try:
+        spreadsheet = client.open_by_key(SPREADSHEET_ID)
+    except Exception as e:
+        raise Exception(f"Could not access spreadsheet. Make sure it's shared with {SERVICE_ACCOUNT_EMAIL}. Error: {e}")
+
+    headers = [
+        "Submission ID",
+        "Shop Name",
+        "Status",
+        "Remarks",
+        "Submitted By",
+        "Submitted At",
+        "Processed",
+        "Processed At"
+    ]
+
+    try:
+        worksheet = spreadsheet.worksheet(DAPP_REMARKS_SHEET)
+        print(f"Found existing worksheet: {DAPP_REMARKS_SHEET}")
+    except gspread.WorksheetNotFound:
+        worksheet = spreadsheet.add_worksheet(
+            title=DAPP_REMARKS_SHEET,
+            rows=1000,
+            cols=len(headers)
+        )
+        print(f"Created new worksheet: {DAPP_REMARKS_SHEET}")
+
+    existing_headers = worksheet.row_values(1)
+    if existing_headers != headers:
+        worksheet.clear()
+        worksheet.append_row(headers)
+        print(f"Initialized headers for {DAPP_REMARKS_SHEET}")
+
+    return worksheet
+
 def delete_worksheet(client, sheet_name):
     """Delete a worksheet from the spreadsheet"""
     try:
@@ -1001,13 +1096,13 @@ def add_shops_to_sheet(worksheet, shops):
                 print("Updated headers to match new column order (including Latitude/Longitude)")
         else:
             # No existing data, add headers
-            worksheet.append_row(headers)
+        worksheet.append_row(headers)
             print("Added headers (including Latitude/Longitude)")
     except Exception as e:
         print(f"Warning: Could not read existing data: {e}")
         # Try to add headers if they don't exist
         try:
-            worksheet.append_row(headers)
+                worksheet.append_row(headers)
         except:
             pass
     
@@ -1116,8 +1211,8 @@ def add_shops_to_sheet(worksheet, shops):
                 pass  # If delete fails, that's okay - the data is already updated
         
         print(f"✅ Updated worksheet with {len(rows)} shops")
-    except Exception as e:
-        print(f"Error in batch update: {e}")
+        except Exception as e:
+            print(f"Error in batch update: {e}")
         # Fallback: clear and append
         try:
             worksheet.clear()
@@ -1125,7 +1220,7 @@ def add_shops_to_sheet(worksheet, shops):
             if rows:
                 worksheet.append_rows(rows)
                 print(f"✅ Added {len(rows)} shops to worksheet (fallback method)")
-        except Exception as e2:
+                except Exception as e2:
             print(f"Error in fallback update: {e2}")
             raise
     
@@ -1149,6 +1244,9 @@ def main():
         
         # Add shops
         add_shops_to_sheet(worksheet, SHOPS)
+
+        # Ensure DApp remarks sheet exists for inbound submissions
+        ensure_dapp_remarks_sheet(client)
         
         # Create itinerary sheet
         print("\n📋 Creating itinerary sheet...")
