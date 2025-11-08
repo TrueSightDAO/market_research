@@ -24,6 +24,7 @@ content_schedule/
 │   ├── README.md                           # Scripts documentation
 │   └── voice_feedback_capture.gs           # Voice-to-text feedback API
 │
+├── DAPP_REMARKS_WORKFLOW.md                # How to record & resolve DApp status remarks
 ├── instagram_hashtags.csv                  # Comprehensive hashtag database
 ├── agroverse_schedule_till_easter_cleaned.csv  # Instagram content schedule
 ├── sync_content_schedule.py                # Sync Instagram schedule to Sheets

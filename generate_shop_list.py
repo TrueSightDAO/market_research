@@ -20,6 +20,8 @@ SCOPES = [
     "https://www.googleapis.com/auth/drive"
 ]
 
+DAPP_REMARKS_SHEET = "DApp Remarks"
+
 # ============================================================================
 # CONSOLIDATED HIT LIST - Organized by Region for Easy Daily Planning
 # ============================================================================
@@ -40,11 +42,41 @@ SHOPS = [
     },
     {
         "name": "Kiki's Cocoa",
-        "address": "Boutique chocolatier location",
+        "address": "1423 Hayes St",
         "city": "San Francisco",
         "state": "CA",
         "type": "Boutique Chocolate",
         "notes": "Already a partner - ethically-sourced, single-origin",
+        "priority": "Existing Partner",
+        "status": "Partnered"
+    },
+    {
+        "name": "Green Gulch Zen Monastery",
+        "address": "1601 Shoreline Highway",
+        "city": "Muir Beach",
+        "state": "CA",
+        "type": "Spiritual/Zen Center",
+        "notes": "Partner - Buddhist practice center with organic farm and gardens",
+        "priority": "Existing Partner",
+        "status": "Partnered"
+    },
+    {
+        "name": "HackerDojo",
+        "address": "855 Maude Ave",
+        "city": "Mountain View",
+        "state": "CA",
+        "type": "Tech Community / Coworking",
+        "notes": "Partner - Collaborative hackerspace and tech community center",
+        "priority": "Existing Partner",
+        "status": "Partnered"
+    },
+    {
+        "name": "Miss Tomato Sandwiches and liquor",
+        "address": "199 87th St",
+        "city": "Daly City",
+        "state": "CA",
+        "type": "Restaurant/Liquor",
+        "notes": "Partner - Sandwiches and liquor",
         "priority": "Existing Partner",
         "status": "Partnered"
     },
@@ -77,13 +109,15 @@ SHOPS = [
     # ========================================================================
     {
         "name": "Infinity Coven",
-        "address": "2827 25th St",
+        "address": "447 Stockton St",
         "city": "San Francisco",
         "state": "CA",
         "type": "Metaphysical/Spiritual",
-        "notes": "Witchy boutique with spells, herbs, books, community workshops. Focus on magic and empowerment. Good fit for cacao in consignment for group rituals.",
+        "phone": "(650) 420-5932",
+        "email": "admin@InfinityCoven.com",
+        "notes": "Witchy boutique with spells, herbs, books, and community workshops near Union Square. Strong magic/empowerment focus—excellent prospect for ceremonial cacao placement.",
         "priority": "High",
-        "status": "Research"
+        "status": "Shortlisted"
     },
     {
         "name": "Paxton Gate",
@@ -120,9 +154,13 @@ SHOPS = [
         "notes": "Smart meditation center with metaphysical shop, wellness services, chakra balancing, holistic healing, sound baths, and meditation classes. Open Tue-Sat 12pm-7pm.",
         "priority": "High",
         "status": "Contacted",
-        "contact_date": "2025-11-05",
-        "contact_method": "Contact form",
-        "sales_notes": ""
+        "contact_date": "2025-11-07",
+        "contact_method": "Drop-off",
+        "visit_date": "2025-11-07",
+        "contact_person": "Chloe (staff)",
+        "owner_name": "Crystal",
+        "product_interest": "Retail cacao display (5 bags on consignment)",
+        "sales_notes": "Dropped off five sample bags with Chloe (staff). Crystal was busy; Chloe will check if they can display the cacao. If not a fit, plan to retrieve the bags. Assume-close approach seemed welcome."
     },
     {
         "name": "Ancient Ways",
@@ -134,10 +172,14 @@ SHOPS = [
         "website": "https://www.ancientways.com/",
         "notes": "Pagan and metaphysical store with herbs, candles, books, ritual supplies, bulk herbs, oils, stones, incense, and readings. Serving Oakland's spiritual community for over 30 years. Community-oriented events and ancient traditions. Open 11am-7pm daily (closed Christmas and New Year's Day).",
         "priority": "High",
-        "status": "Contacted",
+        "status": "Manager Follow-up",
         "contact_date": "2025-11-05",
-        "contact_method": "Contact form",
-        "sales_notes": ""
+        "contact_method": "In-person",
+        "follow_up_date": "2025-11-12 11:30-12:00",
+        "contact_person": "Don (staff)",
+        "owner_name": "Sue",
+        "referral": "Don",
+        "sales_notes": "Met with Don (staff). Buyer Sue unavailable; call next Wednesday between 11:30am-12pm."
     },
     {
         "name": "Amethyst House",
@@ -169,6 +211,56 @@ SHOPS = [
         "contact_date": "2025-11-05",
         "contact_method": "Email",
         "sales_notes": ""
+    },
+    {
+        "name": "Mystic Flora Apothecary",
+        "address": "1501 El Camino Real Suite F",
+        "city": "San Mateo",
+        "state": "CA",
+        "type": "Metaphysical/Spiritual",
+        "phone": "(650) 622-4264",
+        "website": "https://www.mysticflora.com/",
+        "instagram": "https://www.instagram.com/mysticflora_apothecary/",
+        "notes": "Animistic, transcultural apothecary offering teas, ritual tools, community practitioner services, and a self-service tea house. Confirm cacao wholesale fit and scheduling interests.",
+        "priority": "Medium",
+        "status": "Research"
+    },
+    {
+        "name": "Tokenz",
+        "address": "530 Main St",
+        "city": "Half Moon Bay",
+        "state": "CA",
+        "type": "Metaphysical/Spiritual",
+        "phone": "(650) 712-8457",
+        "website": "https://www.tokenzhmb.com/",
+        "notes": "Long-running Half Moon Bay boutique (est. 1982) with global imports: masks, statuary, gemstones, incense, bells, gongs, sarongs. Confirm cacao alignment and wholesale interest.",
+        "priority": "Medium",
+        "status": "Research"
+    },
+    {
+        "name": "Garden Apothecary",
+        "address": "601 Main St",
+        "city": "Half Moon Bay",
+        "state": "CA",
+        "type": "Metaphysical/Spiritual",
+        "website": "https://gardenapothecary.com/",
+        "email": "shop@gardenapothecary.com",
+        "notes": "Botanist-formulated skincare/tea apothecary in downtown Half Moon Bay. Organic, small-batch wellness products with in-store workshops and teas. Confirm ceremonial cacao alignment and wholesale options.",
+        "priority": "Medium",
+        "status": "Research"
+    },
+    {
+        "name": "Go Ask Alice",
+        "address": "1125 Pacific Ave",
+        "city": "Santa Cruz",
+        "state": "CA",
+        "type": "Metaphysical/Spiritual",
+        "phone": "(831) 469-4372",
+        "website": "https://www.goaskalicesantacruz.com/",
+        "email": "info@goaskalice.org",
+        "notes": "Herbal apothecary and ritual boutique (teas, elixirs, tarot/oracle, decor) open daily 11am-8pm. In-store services include tarot and astrology readings (schedule via practitioners). Verify interest in ceremonial cacao and wholesale options.",
+        "priority": "Medium",
+        "status": "Research"
     },
     {
         "name": "Moonstone Metaphysical",
@@ -221,10 +313,14 @@ SHOPS = [
         "instagram": "https://www.facebook.com/FremontNatural",
         "notes": "Natural foods store with healing/wellness products. May have sections for spiritual/wellness items.",
         "priority": "Medium",
-        "status": "Contacted",
-        "contact_date": "2025-11-05",
-        "contact_method": "Email",
-        "sales_notes": ""
+        "status": "Manager Follow-up",
+        "contact_date": "2025-11-07",
+        "contact_method": "In-person",
+        "follow_up_date": "2025-11-12",
+        "contact_person": "Betty",
+        "owner_name": "Monica",
+        "referral": "Betty",
+        "sales_notes": "Met Betty in-store; Monica (buyer) unavailable. Referred to call Monica next Wednesday."
     },
     {
         "name": "Sublime Journey West Coast",
@@ -250,12 +346,15 @@ SHOPS = [
         "type": "Metaphysical/Spiritual",
         "phone": "(510) 282-7829",
         "website": "https://www.queenhippiegypsy.com/",
+        "email": "Queenhippiegypsy@gmail.com",
         "notes": "Metaphysical/spiritual shop. Store keeper: Lily (Lilly Ayers). Check website for specific offerings and hours.",
         "priority": "High",
-        "status": "Contacted",
-        "contact_date": "2025-11-05",
-        "contact_method": "Contact form",
-        "sales_notes": ""
+        "status": "Partnered",
+        "contact_date": "2025-11-07",
+        "contact_method": "Email",
+        "contact_person": "Lilly",
+        "owner_name": "Lilly",
+        "sales_notes": "Onboarded. Lilly confirmed partnership and received onboarding email."
     },
     {
         "name": "The Sanctuary",
@@ -266,10 +365,14 @@ SHOPS = [
         "website": "https://thesanctuary.energy/",
         "notes": "Spiritual shop specializing in Ìṣẹ̀ṣe, Lukumí, and Palo traditions. Offers herbal offerings, botànica items, books, crystals, spiritual tools, and spiritual services (readings, cleansings, counseling). Open Wed-Sun 12pm-6pm.",
         "priority": "High",
-        "status": "Contacted",
+        "status": "Followed Up",
         "contact_date": "2025-11-05",
-        "contact_method": "Contact form",
-        "sales_notes": ""
+        "contact_method": "Phone",
+        "follow_up_date": "2025-11-12",
+        "contact_person": "Etecia",
+        "owner_name": "Etecia & wife",
+        "product_interest": "Cacao nibs, cacao butter",
+        "sales_notes": "Spoke with Etecia; she'll speak with her wife. They can use cacao nibs and cacao butter. Follow up via email next Wednesday."
     },
     {
         "name": "Twisted Thistle Apothecary",
@@ -370,10 +473,13 @@ SHOPS = [
         "email": "featheredoutlaw@gmail.com",
         "notes": "Metaphysical/spiritual shop in Alameda. Check for specific offerings and hours.",
         "priority": "Medium",
-        "status": "Contacted",
-        "contact_date": "2025-11-05",
-        "contact_method": "Email",
-        "sales_notes": ""
+        "status": "Manager Follow-up",
+        "contact_date": "2025-11-07",
+        "contact_method": "In-person",
+        "follow_up_date": "2025-11-12",
+        "contact_person": "Amber",
+        "owner_name": "Marie",
+        "sales_notes": "Spoke with Amber; owner Marie was out. Amber will pass along our card. Follow up next Wednesday."
     },
     # ========================================================================
     # Note: I-5 Route (Central California) shops removed - taking Highway 1 instead
@@ -651,6 +757,43 @@ def create_shop_list_sheet(client, sheet_name="Hit List"):
     
     return worksheet
 
+def ensure_dapp_remarks_sheet(client):
+    """Ensure the DApp remarks worksheet exists with headers"""
+    try:
+        spreadsheet = client.open_by_key(SPREADSHEET_ID)
+    except Exception as e:
+        raise Exception(f"Could not access spreadsheet. Make sure it's shared with {SERVICE_ACCOUNT_EMAIL}. Error: {e}")
+
+    headers = [
+        "Submission ID",
+        "Shop Name",
+        "Status",
+        "Remarks",
+        "Submitted By",
+        "Submitted At",
+        "Processed",
+        "Processed At"
+    ]
+
+    try:
+        worksheet = spreadsheet.worksheet(DAPP_REMARKS_SHEET)
+        print(f"Found existing worksheet: {DAPP_REMARKS_SHEET}")
+    except gspread.WorksheetNotFound:
+        worksheet = spreadsheet.add_worksheet(
+            title=DAPP_REMARKS_SHEET,
+            rows=1000,
+            cols=len(headers)
+        )
+        print(f"Created new worksheet: {DAPP_REMARKS_SHEET}")
+
+    existing_headers = worksheet.row_values(1)
+    if existing_headers != headers:
+        worksheet.clear()
+        worksheet.append_row(headers)
+        print(f"Initialized headers for {DAPP_REMARKS_SHEET}")
+
+    return worksheet
+
 def delete_worksheet(client, sheet_name):
     """Delete a worksheet from the spreadsheet"""
     try:
@@ -863,6 +1006,12 @@ def add_shops_to_sheet(worksheet, shops):
         "Notes",
         "Contact Date",
         "Contact Method",
+        "Follow Up Date",
+        "Contact Person",
+        "Owner Name",
+        "Referral",
+        "Product Interest",
+        "Follow Up Event Link",
         "Visit Date",
         "Outcome",
         "Sales Process Notes",
@@ -872,6 +1021,8 @@ def add_shops_to_sheet(worksheet, shops):
     
     # Get existing data to preserve any manual edits and existing lat/lng
     existing_lat_lng = {}  # Map shop name to (lat, lng)
+    existing_status = {}
+    existing_follow_up_links = {}
     try:
         existing_data = worksheet.get_all_values()
         if existing_data and len(existing_data) > 1:
@@ -882,6 +1033,8 @@ def add_shops_to_sheet(worksheet, shops):
             lat_col_idx = None
             lng_col_idx = None
             name_col_idx = None
+            status_col_idx = None
+            follow_up_link_idx = None
             
             for idx, header in enumerate(existing_headers):
                 if header.lower() == "latitude":
@@ -890,6 +1043,10 @@ def add_shops_to_sheet(worksheet, shops):
                     lng_col_idx = idx
                 elif header.lower() == "shop name":
                     name_col_idx = idx
+                elif header.lower() == "status":
+                    status_col_idx = idx
+                elif header.lower() == "follow up event link":
+                    follow_up_link_idx = idx
             
             # Extract existing lat/lng values
             if name_col_idx is not None and lat_col_idx is not None and lng_col_idx is not None:
@@ -907,6 +1064,24 @@ def add_shops_to_sheet(worksheet, shops):
                             except ValueError:
                                 pass
             
+            # Preserve existing statuses
+            if name_col_idx is not None and status_col_idx is not None:
+                for row in existing_data[1:]:
+                    if len(row) > max(name_col_idx, status_col_idx):
+                        shop_name = row[name_col_idx]
+                        status_value = row[status_col_idx]
+                        if shop_name and status_value:
+                            existing_status[shop_name] = status_value
+
+            # Preserve existing follow-up event links
+            if name_col_idx is not None and follow_up_link_idx is not None:
+                for row in existing_data[1:]:
+                    if len(row) > max(name_col_idx, follow_up_link_idx):
+                        shop_name = row[name_col_idx]
+                        event_link = row[follow_up_link_idx]
+                        if shop_name and event_link:
+                            existing_follow_up_links[shop_name] = event_link
+            
             # Update headers if they exist
             if existing_headers != headers:
                 # Calculate range for headers (now includes lat/lng)
@@ -921,13 +1096,13 @@ def add_shops_to_sheet(worksheet, shops):
                 print("Updated headers to match new column order (including Latitude/Longitude)")
         else:
             # No existing data, add headers
-            worksheet.append_row(headers)
+        worksheet.append_row(headers)
             print("Added headers (including Latitude/Longitude)")
     except Exception as e:
         print(f"Warning: Could not read existing data: {e}")
         # Try to add headers if they don't exist
         try:
-            worksheet.append_row(headers)
+                worksheet.append_row(headers)
         except:
             pass
     
@@ -961,9 +1136,16 @@ def add_shops_to_sheet(worksheet, shops):
         else:
             skipped_count += 1
         
+        existing_status_value = existing_status.get(shop_name, "")
+        status_value = existing_status_value or shop.get("status", "Research")
+
+        follow_up_event_link = shop.get("follow_up_event_link", "")
+        if not follow_up_event_link:
+            follow_up_event_link = existing_follow_up_links.get(shop_name, "")
+
         row = [
             shop_name,
-            shop.get("status", "Research"),
+            status_value,
             shop.get("priority", ""),
             address,
             city,
@@ -976,6 +1158,12 @@ def add_shops_to_sheet(worksheet, shops):
             shop.get("notes", ""),
             shop.get("contact_date", ""),
             shop.get("contact_method", ""),
+            shop.get("follow_up_date", ""),
+            shop.get("contact_person", ""),
+            shop.get("owner_name", ""),
+            shop.get("referral", ""),
+            shop.get("product_interest", ""),
+            follow_up_event_link,
             shop.get("visit_date", ""),
             shop.get("outcome", ""),
             shop.get("sales_notes", ""),
@@ -1023,8 +1211,8 @@ def add_shops_to_sheet(worksheet, shops):
                 pass  # If delete fails, that's okay - the data is already updated
         
         print(f"✅ Updated worksheet with {len(rows)} shops")
-    except Exception as e:
-        print(f"Error in batch update: {e}")
+        except Exception as e:
+            print(f"Error in batch update: {e}")
         # Fallback: clear and append
         try:
             worksheet.clear()
@@ -1032,7 +1220,7 @@ def add_shops_to_sheet(worksheet, shops):
             if rows:
                 worksheet.append_rows(rows)
                 print(f"✅ Added {len(rows)} shops to worksheet (fallback method)")
-        except Exception as e2:
+                except Exception as e2:
             print(f"Error in fallback update: {e2}")
             raise
     
@@ -1056,6 +1244,9 @@ def main():
         
         # Add shops
         add_shops_to_sheet(worksheet, SHOPS)
+
+        # Ensure DApp remarks sheet exists for inbound submissions
+        ensure_dapp_remarks_sheet(client)
         
         # Create itinerary sheet
         print("\n📋 Creating itinerary sheet...")
