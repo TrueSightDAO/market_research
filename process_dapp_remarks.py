@@ -15,7 +15,7 @@ Usage:
 from __future__ import annotations
 
 import argparse
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Dict, List, Tuple
 
@@ -57,6 +57,55 @@ def append_sales_note(existing_notes: str, note_line: str) -> str:
     if not existing_notes:
         return note_line
     return f"{existing_notes.strip()}\n\n{note_line}"
+
+
+def parse_sheet_datetime(value: str | float | int) -> datetime | None:
+    """Best-effort parser for Google Sheets date values."""
+    if value in (None, "", 0):
+        return None
+
+    if isinstance(value, (int, float)):
+        # Google Sheets serial numbers are days since 1899-12-30
+        base_date = datetime(1899, 12, 30, tzinfo=timezone.utc)
+        return base_date + timedelta(days=float(value))
+
+    if isinstance(value, str):
+        text = value.strip()
+        if not text:
+            return None
+
+        # Try ISO formats first
+        iso_text = text.replace("Z", "+00:00") if text.endswith("Z") else text
+        try:
+            return datetime.fromisoformat(iso_text)
+        except ValueError:
+            pass
+
+        # Common spreadsheet formats
+        formats = [
+            "%m/%d/%Y %H:%M:%S",
+            "%m/%d/%Y %H:%M",
+            "%m/%d/%Y",
+            "%Y-%m-%d %H:%M:%S",
+            "%Y-%m-%d %H:%M",
+            "%Y-%m-%d",
+        ]
+        for fmt in formats:
+            try:
+                return datetime.strptime(text, fmt)
+            except ValueError:
+                continue
+
+    return None
+
+
+def to_utc(dt: datetime | None) -> datetime | None:
+    """Normalize datetime to timezone-aware UTC."""
+    if dt is None:
+        return None
+    if dt.tzinfo is None or dt.tzinfo.utcoffset(dt) is None:
+        return dt.replace(tzinfo=timezone.utc)
+    return dt.astimezone(timezone.utc)
 
 
 def process_remarks(dry_run: bool = False) -> Tuple[int, int]:
@@ -120,6 +169,7 @@ def process_remarks(dry_run: bool = False) -> Tuple[int, int]:
         remarks = row[remarks_index["Remarks"]].strip()
         submitted_by = row[remarks_index["Submitted By"]].strip() or "DApp"
         submitted_at = row[remarks_index.get("Submitted At", -1)].strip() if "Submitted At" in remarks_index else ""
+        submitted_dt = to_utc(parse_sheet_datetime(submitted_at))
 
         if not shop_name:
             print(f"[SKIP] Row {row_num}: Missing shop name.")
@@ -136,23 +186,45 @@ def process_remarks(dry_run: bool = False) -> Tuple[int, int]:
         print(f"[INFO] Updating '{shop_name}' (Hit List row {target_row}) with status '{status}' and remarks.")
 
         if not dry_run:
+            existing_status = hit_list_ws.cell(target_row, hit_index["Status"] + 1).value or ""
+            should_update_status = False
+            status_reason = ""
+
             if status:
+                if status == existing_status:
+                    status_reason = "Status unchanged; skipping update."
+                else:
+                    existing_status_dt_raw = (
+                        hit_list_ws.cell(target_row, hit_index["Status Updated Date"] + 1).value
+                        if "Status Updated Date" in hit_index
+                        else ""
+                    )
+                    existing_status_dt = to_utc(parse_sheet_datetime(existing_status_dt_raw))
+
+                    if existing_status_dt and submitted_dt and existing_status_dt > submitted_dt:
+                        status_reason = (
+                            "Existing status is newer than remark submission; skipping update to avoid overwrite."
+                        )
+                    else:
+                        should_update_status = True
+
+            if should_update_status:
                 hit_list_ws.update_cell(target_row, hit_index["Status"] + 1, status)
+                if "Status Updated By" in hit_index:
+                    hit_list_ws.update_cell(target_row, hit_index["Status Updated By"] + 1, submitted_by)
+                if "Status Updated Date" in hit_index:
+                    hit_list_ws.update_cell(target_row, hit_index["Status Updated Date"] + 1, now_iso)
+            elif status_reason:
+                print(f"  [INFO] {status_reason}")
 
             status_note = remarks or ""
             if status_note:
-                note_prefix = f"[{now_iso} | {submitted_by}]"
-                if submitted_at:
-                    note_prefix = f"[{submitted_at} | {submitted_by}]"
+                note_timestamp = submitted_dt.isoformat() if submitted_dt else now_iso
+                note_prefix = f"[{note_timestamp} | {submitted_by}]"
                 note_line = f"{note_prefix} {status_note}"
                 existing_notes = hit_list_ws.cell(target_row, hit_index["Sales Process Notes"] + 1).value or ""
                 new_notes = append_sales_note(existing_notes, note_line)
                 hit_list_ws.update_cell(target_row, hit_index["Sales Process Notes"] + 1, new_notes)
-
-            if "Status Updated By" in hit_index:
-                hit_list_ws.update_cell(target_row, hit_index["Status Updated By"] + 1, submitted_by)
-            if "Status Updated Date" in hit_index:
-                hit_list_ws.update_cell(target_row, hit_index["Status Updated Date"] + 1, now_iso)
 
             remarks_ws.update_cell(row_num, remarks_index["Processed"] + 1, "Yes")
             remarks_ws.update_cell(row_num, remarks_index["Processed At"] + 1, now_iso)
