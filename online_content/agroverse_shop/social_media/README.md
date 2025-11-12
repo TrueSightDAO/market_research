@@ -395,15 +395,6 @@ Here's [what viewers will learn/3 quick insights about the topic]:
 - **Add weekend content** (Fri, Sat) for special events
 - **Maintain chronological flow** from Week 1 to Week 27
 
-## 📚 Documentation Files
-
-This directory contains detailed documentation:
-
-- **CURSOR_AI_GUIDE.md** - Complete Cursor AI guide for content management
-- **FEEDBACK_WORKFLOW.md** - Community feedback integration workflow
-- **VOICE_FEEDBACK_SETUP.md** - Voice feedback capture setup guide
-- **IPHONE_SHORTCUT_TEMPLATE.md** - iPhone Shortcuts template
-
 ## 💡 Best Practices
 
 1. **Regular Processing** - Process feedback weekly or bi-weekly

@@ -389,14 +389,6 @@ Wix API integration library for blog publishing automation.
 3. **Update in Wix** (if using API) or manually
 4. **Republish if needed**
 
-## 📚 Documentation Files
-
-This directory contains detailed documentation:
-
-- **BLOG_SCHEDULE_GUIDE.md** - Complete blog schedule management guide
-- **WIX_BLOG_GUIDE.md** - Wix blog publishing guide with SEO tips
-- **BLOG_POST_ADDED_20260126.md** - Notes on specific blog post additions
-
 ## 💡 Best Practices
 
 1. **Consistency** - Publish on schedule (weekly or bi-weekly)

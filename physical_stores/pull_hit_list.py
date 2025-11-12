@@ -39,11 +39,12 @@ def backup_existing(path: Path) -> None:
 
 
 def fetch_hit_list() -> pd.DataFrame:
-    creds_path = Path("google_credentials.json")
+    # Look for credentials in parent directory (repository root)
+    creds_path = Path(__file__).parent.parent / "google_credentials.json"
     if not creds_path.exists():
         raise FileNotFoundError(
-            "google_credentials.json not found. Please place your service account "
-            "credentials in the project root."
+            f"google_credentials.json not found at {creds_path}. Please place your service account "
+            "credentials in the repository root."
         )
 
     creds = Credentials.from_service_account_file(str(creds_path), scopes=SCOPES)

@@ -409,13 +409,30 @@ The `create_followup_events.py` script creates Google Calendar events from the `
 python3 create_followup_events.py
 ```
 
+**Setup Requirements:**
+1. Share the target Google Calendar with the service account:
+   - `agroverse-market-research@get-data-io.iam.gserviceaccount.com`
+   - Grant at least "Make changes to events" permission
+2. Set the environment variable `GOOGLE_CALENDAR_ID` to the calendar's ID:
+   ```bash
+   export GOOGLE_CALENDAR_ID="your-calendar-id@group.calendar.google.com"
+   ```
+   Or create a `.env` file in the repository root:
+   ```
+   GOOGLE_CALENDAR_ID=your-calendar-id@group.calendar.google.com
+   ```
+
 **Format:** `YYYY-MM-DD HH:MM` or `YYYY-MM-DD HH:MM-HH:MM` (for time ranges)
 
 **Example:**
 - `Earth Impact → 2025-11-13 10:00` (call Stephanie at 10 AM)
 - `Go Ask Alice → 2025-11-14 11:00` (in-store pop-in)
 
-The script is idempotent—re-running it updates existing events rather than duplicating them.
+**Features:**
+- The script is idempotent—re-running it updates existing events rather than duplicating them
+- Generates deterministic event IDs based on shop name and date
+- Default timezone: `America/Los_Angeles` (can be overridden with `DEFAULT_TIMEZONE` env var)
+- Creates events for all rows with a "Follow Up Date" value
 
 ## 🎯 Key Messaging Points
 
@@ -462,19 +479,6 @@ The script is idempotent—re-running it updates existing events rather than dup
 - ✅ Be transparent - Honest about pricing, structure
 - ✅ Be patient - Sales take time, relationships matter
 - ✅ Be grateful - Thank them for their time, always
-
-## 📚 Documentation Files
-
-This directory contains detailed documentation:
-
-- **PARTNER_TARGETING_GUIDE.md** - Complete targeting strategy and verification checklist
-- **STORE_VISIT_APPROACH_PROTOCOL.md** - Detailed step-by-step visit protocol
-- **STORE_VISIT_QUICK_REFERENCE.md** - One-page cheat sheet for visits
-- **EMAIL_OUTREACH_STRATEGY.md** - Complete email outreach guide with templates
-- **EMAIL_OUTREACH_QUICK_REFERENCE.md** - One-page email cheat sheet
-- **ROUTE_OPTIMIZATION_STRATEGY.md** - Route planning and optimization strategies
-- **DAPP_REMARKS_WORKFLOW.md** - DApp remarks capture and processing workflow
-- **FIND_NEARBY_STORES_README.md** - Google Apps Script API documentation
 
 ## 💡 Pro Tips
 
