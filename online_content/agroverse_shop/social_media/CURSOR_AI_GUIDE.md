@@ -3,6 +3,13 @@
 ## 🎯 **Your Mission**
 You are taking over the management of Instagram content scheduling for Agroverse.shop. Your primary responsibility is to update the content schedule when marketing priorities change or new opportunities arise.
 
+### 📆 Google Calendar Follow-Ups (Market Research Hit List)
+- The service account in `google_credentials.json` already has access to the Hit List calendar (`GOOGLE_CALENDAR_ID` is set locally).  
+- When a shop needs a reminder, update the `Follow Up Date` column with an ISO timestamp like `YYYY-MM-DD HH:MM` (optionally `HH:MM-HH:MM` for a range).  
+- Run `source venv/bin/activate && python create_followup_events.py` from `market_research/` to create/update Google Calendar events.  
+- Example: `Earth Impact → 2025-11-13 10:00` (call Stephanie at 10 AM) and `Go Ask Alice → 2025-11-14 11:00` (in-store pop-in).  
+- The script is idempotent—re-running it simply updates existing events rather than duplicating them.
+
 ## 🌟 **AGROVERSE CONTENT MARKETING STRATEGY: THE 3 CORE THEMES**
 
 **CRITICAL**: All content must align with at least one (ideally multiple) of these strategic pillars. These themes create Agroverse's competitive moat in the regenerative cacao market.
