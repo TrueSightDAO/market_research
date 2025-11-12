@@ -1,355 +1,208 @@
-# Content Schedule Repository
+# Market Research Repository
 
-This repository contains tools and data for managing **multi-channel content marketing** for Agroverse.shop and TrueSight DAO, including Instagram, blog content, and hashtag research.
+This repository contains tools and data for managing **multi-channel content marketing** and **physical store partnerships** for Agroverse.shop and TrueSight DAO.
 
 ## 📁 Repository Structure
 
 ```
-content_schedule/
-├── .github/
-│   └── workflows/
-│       └── sync-to-sheets.yml              # GitHub Actions workflow
-├── venv/                                    # Python virtual environment
-├── requirements.txt                         # Python dependencies
-├── .gitignore                              # Git ignore file
-├── README.md                               # This file
-├── GITHUB_ACTIONS_SETUP.md                 # GitHub Actions setup guide
-├── CURSOR_AI_GUIDE.md                      # Instagram content management guide
-├── BLOG_SCHEDULE_GUIDE.md                  # Blog content management guide ⭐ NEW
-├── FEEDBACK_WORKFLOW.md                    # Manual feedback integration guide
-├── VOICE_FEEDBACK_SETUP.md                 # Voice feedback via iPhone/Siri guide 🎤 NEW
-├── env.example                             # Environment variables template
-├── google_credentials.json                 # Google Sheets API credentials (not in repo)
-├── google_apps_scripts/                    # Google Apps Script files 🎤 NEW
-│   ├── README.md                           # Scripts documentation
-│   └── voice_feedback_capture.gs           # Voice-to-text feedback API
+market_research/
+├── README.md                          # This file
+├── requirements.txt                   # Python dependencies
+├── google_credentials.json            # Google Sheets API credentials (not in repo)
+├── venv/                              # Python virtual environment
 │
-├── DAPP_REMARKS_WORKFLOW.md                # How to record & resolve DApp status remarks
-├── instagram_hashtags.csv                  # Comprehensive hashtag database
-├── agroverse_schedule_till_easter_cleaned.csv  # Instagram content schedule
-├── sync_content_schedule.py                # Sync Instagram schedule to Sheets
+├── physical_stores/                   # Physical store partnership management
+│   ├── README.md                      # Complete physical stores guide
+│   ├── data/                          # Hit List CSV data
+│   ├── generate_shop_list.py          # Generate shop lists
+│   ├── process_dapp_remarks.py        # Process DApp remarks
+│   └── [See physical_stores/README.md for full structure]
 │
-├── blog_schedule.csv                       # Blog content schedule ⭐ NEW
-├── blog_schedule_template.csv              # Blog schedule template/example ⭐ NEW
-├── blog_posts/                             # Markdown blog post content ⭐ NEW
-│   └── okanogan_journey.md                 # First blog post
-├── sync_blog_schedule.py                   # Sync blog schedule to Sheets ⭐ NEW
-├── create_blog_drafts.py                   # Create Wix drafts from schedule ⭐ NEW
-├── update_blog_draft.py                    # Update Wix drafts by primary key ⭐ NEW
-├── wix_blog_publisher.py                   # Wix API integration library ⭐ NEW
-│
-├── sync_hashtags.py                        # Script to sync hashtags
-├── sync_feedback.py                        # Script to sync community feedback
-└── process_feedback.py                     # AI feedback processor
+└── online_content/                     # Online content management
+    ├── agroverse_shop/
+    │   ├── social_media/              # Instagram content management
+    │   │   ├── README.md              # Complete social media guide
+    │   │   ├── sync_content_schedule.py
+    │   │   ├── sync_hashtags.py
+    │   │   └── [See online_content/agroverse_shop/social_media/README.md]
+    │   │
+    │   └── blog_post/                 # Blog content management
+    │       ├── README.md               # Complete blog guide
+    │       ├── sync_blog_schedule.py
+    │       ├── create_blog_drafts.py
+    │       └── [See online_content/agroverse_shop/blog_post/README.md]
+    │
+    └── truesight_dao/
+        └── blog_post/                  # Truesight DAO blog management
+            ├── README.md               # Truesight DAO blog guide
+            ├── sync_truesight_blog_schedule.py
+            └── [See online_content/truesight_dao/blog_post/README.md]
 ```
 
 ## 🚀 Quick Start
 
-### Option 1: Manual Setup (Local Development)
-
-#### 1. Setup Virtual Environment
+### 1. Setup Virtual Environment
 
 ```bash
-# Navigate to the repository
-cd content_schedule
-
-# Activate virtual environment
+cd /Users/garyjob/Applications/market_research
 source venv/bin/activate  # On macOS/Linux
-# OR
-venv\Scripts\activate     # On Windows
-
-# Install dependencies
 pip install -r requirements.txt
 ```
 
-#### 2. Google Sheets API Setup
+### 2. Google Sheets API Setup
 
 1. Go to [Google Cloud Console](https://console.cloud.google.com/)
 2. Create a new project or select existing one
 3. Enable Google Sheets API and Google Drive API
 4. Create a Service Account
 5. Download the JSON credentials file
-6. Rename it to `google_credentials.json` and place it in this directory
-7. Share your Google Sheets document with the service account email
+6. Rename it to `google_credentials.json` and place it in the repository root
+7. Share your Google Sheets documents with the service account email
 
-#### 3. Run Sync Scripts
+### 3. Navigate to Specific Areas
 
+**Physical Stores:**
 ```bash
-# Sync Instagram content schedule to Google Sheets
-python sync_content_schedule.py
-
-# Sync blog content schedule to Google Sheets
-python sync_blog_schedule.py
-
-# Sync hashtags to Google Sheets
-python sync_hashtags.py
+cd physical_stores
+# See physical_stores/README.md for complete guide
 ```
 
-### Option 2: Automated Setup (GitHub Actions) ⭐ **RECOMMENDED**
-
-For automated syncing whenever you commit changes, set up GitHub Actions:
-
-1. **Follow the detailed setup guide**: [GITHUB_ACTIONS_SETUP.md](./GITHUB_ACTIONS_SETUP.md)
-2. **Quick setup**:
-   - Add your Google credentials as a GitHub Secret: `GOOGLE_CREDENTIALS_JSON`
-   - Push changes to trigger automatic syncing
-   - View sync status in the Actions tab of your repository
-
-**Benefits**:
-- ✅ Automatic syncing on every commit
-- ✅ No manual intervention required
-- ✅ Consistent, reliable execution
-- ✅ Full audit trail and logging
-
-## 📊 Data Files
-
-### Instagram Hashtags (`instagram_hashtags.csv`)
-
-Contains 400+ curated hashtags organized by:
-- **Usage Category**: Core Cacao & Farming, Quality & Origin, etc.
-- **Type**: General or Targeted
-- **Notes**: Core Set, High Frequency, or Medium Frequency
-
-### Content Schedule (`agroverse_schedule_till_easter.csv`)
-
-Contains Instagram content planning data with:
-- **Primary Key**: Unique 8-character identifier for each row
-- **Status**: Content status (preserved during sync)
-- **Weekly content themes**
-- **Post schedules**
-- **Content types** (Reel, Carousel, etc.)
-- **Captions and hashtags**
-- **Call-to-action suggestions**
-
-**Important**: The `primary_key` column is automatically generated and used to match rows during sync, preserving manual status updates in Google Sheets.
-
-### Blog Content Schedule (`blog_schedule.csv`) ⭐ NEW
-
-Contains blog publishing schedule data with:
-- **Primary Key**: Unique 8-character identifier based on Publish Date + Blog Title
-- **Status**: Content status (DRAFT, REVIEW, SCHEDULED, PUBLISHED)
-- **SEO Keywords**: Target keywords for each post
-- **Content Outline**: Section-by-section structure
-- **Instagram Tie-In**: How blog connects to Instagram content
-- **Internal Links**: SEO linking strategy
-- **Target Word Count**: Article length goals
-
-**Synchronization with Instagram**: Blog posts are strategically timed to support and expand on Instagram content themes, creating a cohesive multi-channel strategy.
-
-**Recommended Cadence**: 
-- Start: 1 blog post per week (Weekly Monday publishing)
-- Growth: 2 blog posts per week (Monday + Thursday)
-- Blog published BEFORE related Instagram series begins
-
-**Wix Draft Integration**: Blog drafts are created via Wix API and tracked in Google Sheets by Wix Draft ID. This allows for easy reference by primary key and collaborative editing workflow.
-
-See **[BLOG_SCHEDULE_GUIDE.md](./BLOG_SCHEDULE_GUIDE.md)** for strategy, **[WIX_DRAFT_WORKFLOW.md](./WIX_DRAFT_WORKFLOW.md)** for the draft creation workflow, **[WIX_BLOG_GUIDE.md](./WIX_BLOG_GUIDE.md)** for manual publishing, and **[WIX_API_AUTOMATION_GUIDE.md](./WIX_API_AUTOMATION_GUIDE.md)** for API details.
-
-## 🔄 Sync Process
-
-### Content Schedule Sync
-
-The `sync_content_schedule.py` script:
-1. Reads `agroverse_schedule_till_easter.csv`
-2. Generates primary keys for new rows (if missing)
-3. Retrieves existing status values from Google Sheets
-4. Connects to Google Sheets using API credentials
-5. Clears existing content in "Content schedule" tab
-6. Uploads new data while preserving existing status values
-7. Matches rows by primary key to maintain status integrity
-8. Provides confirmation and link to updated sheet
-
-**Status Preservation**: Manual status updates in Column B are preserved during sync using primary key matching.
-
-### Blog Schedule Sync ⭐ NEW
-
-The `sync_blog_schedule.py` script:
-1. Reads `blog_schedule.csv`
-2. Generates primary keys based on Publish Date + Blog Title
-3. Retrieves existing status values from Google Sheets
-4. Connects to "Blog Content Schedule" worksheet (same spreadsheet)
-5. Clears existing content
-6. Uploads new data while preserving status values
-7. Maintains status integrity through primary key matching
-
-**Status Preservation**: Like Instagram, blog post statuses (DRAFT, SCHEDULED, PUBLISHED) are preserved during sync.
-
-**Integration**: Blog schedule lives in the same Google Sheets document as Instagram content for easy cross-referencing.
-
-### Hashtags Sync
-
-The `sync_hashtags.py` script:
-1. Reads `instagram_hashtags.csv`
-2. Connects to Google Sheets using API credentials
-3. Clears existing content in "Hashtag suggestions" tab
-4. Uploads new data with formatting and auto-resized columns
-5. Provides confirmation and link to updated sheet
-
-### Voice Feedback Capture 🎤 NEW
-
-The `google_apps_scripts/voice_feedback_capture.gs` script enables **hands-free content idea capture**:
-
-**Workflow**:
-1. Say: *"Hey Siri, add feedback"*
-2. Speak your content idea
-3. Automatically added to "Feedback on Content" sheet with timestamp and digital signature
-4. Review and mark status (INCORPORATED, PENDING, REJECTED) later
-
-**Sheet Columns**:
-- Column A: Feedback text
-- Column B: Status (INCORPORATED, PENDING, REJECTED)
-- Column C: Timestamp
-- Column D: Digital Signature (for verification & attribution)
-
-**Features**:
-- ✅ Voice-to-text via iPhone Siri
-- ✅ Completely hands-free
-- ✅ Works while driving, cooking, or anywhere
-- ✅ No app switching or typing needed
-- ✅ Offline support (queues until online)
-- ✅ Automatic timestamping
-
-**Setup**: See **[VOICE_FEEDBACK_SETUP.md](./VOICE_FEEDBACK_SETUP.md)** for complete iPhone Shortcuts + Google Apps Script deployment guide.
-
-**Use Cases**:
-- Capture ideas while watching competitor content
-- Record thoughts during farm visits
-- Note customer comments in real-time
-- Brainstorm while exercising or commuting
-
-## 🛠️ Dependencies
-
-- `google-api-python-client`: Google Sheets API integration
-- `gspread`: Simplified Google Sheets interface
-- `pandas`: CSV data manipulation
-- `python-dotenv`: Environment variable management
-- `google-auth-oauthlib`: Google authentication
-
-## 📝 How to Refresh CSV Files
-
-### 1. Update Instagram Hashtags
-
-1. Edit `instagram_hashtags.csv` directly
-2. Add new hashtags with proper categorization
-3. Run sync script:
-   ```bash
-   python sync_hashtags.py
-   ```
-
-### 2. Update Content Schedule
-
-1. Create or edit `agroverse_schedule_till_easter.csv`
-2. Ensure proper column headers:
-   - Status, Week, Date Range, Theme, etc.
-3. Run sync script:
-   ```bash
-   python sync_content_schedule.py
-   ```
-
-## 🤖 **Cursor.AI Instructions for New Users**
-
-### **Quick Start for New Cursor.AI Instances**
-
-When taking over this project, here's what you need to know:
-
-#### **🎯 Primary Task: Content Schedule Management**
-- **Main File**: `agroverse_schedule_till_easter.csv` 
-- **Google Sheet**: [Content Schedule Tab](https://docs.google.com/spreadsheets/d/1ghZXeMqFq97Vl6yLKrtDmMQdQkd-4EN5yQs34NA_sBQ/edit?gid=1682511679#gid=1682511679)
-- **Key Constraint**: **NEVER override status values in Column B of Google Sheets**
-
-#### **📋 CSV File Structure**
-The CSV must have these columns in this exact order:
-```csv
-Week,Date Range,Theme Focus,Post Day,Post Type,Theme,Description,Caption,Hashtags,CTA,Tool Suggestions
-```
-
-#### **🔑 Primary Key System**
-- Primary keys are **automatically generated** based on: `Post Day + Post Type + Theme`
-- **Same content = Same primary key** (deterministic)
-- **Status preservation** works by matching these primary keys
-
-#### **⚡ Common Workflows**
-
-**Scenario 1: Update Content for Specific Date Ranges**
+**Agroverse Social Media:**
 ```bash
-# 1. Edit the CSV file
-# 2. Update the content for the date range you want to change
-# 3. Run sync (status values will be preserved)
-python sync_content_schedule.py
+cd online_content/agroverse_shop/social_media
+# See online_content/agroverse_shop/social_media/README.md for complete guide
 ```
 
-**Scenario 2: Add New Content**
+**Agroverse Blog:**
 ```bash
-# 1. Add new rows to the CSV with proper date ranges
-# 2. Run sync (new content gets empty status)
-python sync_content_schedule.py
+cd online_content/agroverse_shop/blog_post
+# See online_content/agroverse_shop/blog_post/README.md for complete guide
 ```
 
-**Scenario 3: Check Current Status**
+**Truesight DAO Blog:**
 ```bash
-# View the Google Sheet directly to see current status values
-# Link: https://docs.google.com/spreadsheets/d/1ghZXeMqFq97Vl6yLKrtDmMQdQkd-4EN5yQs34NA_sBQ
+cd online_content/truesight_dao/blog_post
+# See online_content/truesight_dao/blog_post/README.md for complete guide
 ```
 
-#### **🚨 Critical Rules**
-1. **NEVER modify the sync script** unless you understand the status preservation logic
-2. **ALWAYS test changes** on a small subset first
-3. **Primary keys are immutable** - changing date/type/theme changes the key
-4. **Status values are sacred** - they represent manual work done in Google Sheets
+## 📊 Key Google Sheets
 
-#### **🛠️ Troubleshooting**
-- **"Status not preserved"**: Check if primary key changed due to content modifications
-- **"JSON error"**: Data cleaning is handled automatically in the script
-- **"Permission denied"**: Check Google Sheets API credentials
+### Physical Stores
+- **Spreadsheet ID**: `1eiqZr3LW-qEI6Hmy0Vrur_8flbRwxwA7jXVrbUnHbvc`
+- **Worksheets**: "Hit List", "DApp Remarks"
+- **Link**: [Holistic Wellness Hit List](https://docs.google.com/spreadsheets/d/1eiqZr3LW-qEI6Hmy0Vrur_8flbRwxwA7jXVrbUnHbvc/edit)
 
-#### **📊 Status Management**
-- **Column A**: Primary key (auto-generated, don't touch)
-- **Column B**: Status (manual updates, preserved during sync)
-- **Column C+**: Content data (safe to modify)
+### Online Content (Agroverse)
+- **Spreadsheet ID**: `1ghZXeMqFq97Vl6yLKrtDmMQdQkd-4EN5yQs34NA_sBQ`
+- **Worksheets**: "Content schedule", "Blog Content Schedule", "Hashtag suggestions", "Feedback on Content"
+- **Link**: [Content Marketing Schedule](https://docs.google.com/spreadsheets/d/1ghZXeMqFq97Vl6yLKrtDmMQdQkd-4EN5yQs34NA_sBQ/edit)
 
-#### **🔄 Sync Process**
-1. Script reads CSV file
-2. Generates deterministic primary keys
-3. Retrieves existing status values from Google Sheets
-4. Matches rows by primary key
-5. Preserves non-empty status values
-6. Updates all other content
-7. Writes back to Google Sheets
+## 🎯 Main Workflows
 
-#### **💡 Pro Tips**
-- **Test changes** by modifying 1-2 rows first
-- **Check primary keys** if status preservation fails
-- **Use descriptive themes** for better primary key uniqueness
-- **Keep status values simple**: "In Progress", "Completed", "Review", etc.
+### Physical Stores
+1. **Research & Targeting** - Identify potential partner stores
+2. **Data Management** - Maintain Hit List in Google Sheets
+3. **Store Visits** - In-person approach protocol
+4. **Email Outreach** - Pre/post-visit communication
+5. **Route Optimization** - Plan efficient visit routes
+6. **Follow-up Management** - Track and schedule follow-ups
 
-#### **📞 Getting Help**
-- Check the sync script logs for detailed information
-- Verify primary key generation with small test changes
-- Ensure CSV format matches expected structure
+**See:** `physical_stores/README.md` for complete guide
 
-### 3. CSV Format Requirements
+### Agroverse Social Media
+1. **Content Scheduling** - Plan Instagram content
+2. **Hashtag Strategy** - Manage hashtag database
+3. **Community Feedback** - Process and incorporate feedback
+4. **Voice Feedback** - Capture ideas via iPhone/Siri
+5. **Content Creation** - AI-assisted content workflows
 
-**Instagram Hashtags CSV:**
-```csv
-Hashtag,Type,Usage Category,Notes
-#cacao,General,Core Cacao & Farming,Core Set
-#craftchocolate,General,Quality & Origin,High Frequency
+**See:** `online_content/agroverse_shop/social_media/README.md` for complete guide
+
+### Agroverse Blog
+1. **Blog Scheduling** - Plan blog content
+2. **Wix Integration** - Create and publish drafts
+3. **SEO Optimization** - Optimize for search
+4. **Instagram Integration** - Cross-promote content
+
+**See:** `online_content/agroverse_shop/blog_post/README.md` for complete guide
+
+### Truesight DAO Blog
+1. **Blog Scheduling** - Plan DAO blog content
+2. **Content Management** - Track and publish posts
+
+**See:** `online_content/truesight_dao/blog_post/README.md` for complete guide
+
+## 🔑 Key Concepts
+
+### Primary Key Systems
+
+**Physical Stores:**
+- Shop Name matching for Hit List updates
+
+**Content Schedules:**
+- Instagram: `Post Day + Post Type + Theme`
+- Blog: `Publish Date + Blog Title`
+
+**Critical**: Changing these fields changes the primary key, which affects status preservation.
+
+### Status Preservation
+
+- **NEVER override status values** in Google Sheets
+- Status values represent manual work and must be preserved
+- Sync scripts automatically preserve status using primary key matching
+
+## 🛠️ Common Tasks
+
+### Pull Latest Data
+```bash
+# Physical stores
+cd physical_stores
+python3 pull_hit_list.py
+
+# Social media (if needed)
+cd online_content/agroverse_shop/social_media
+python3 sync_content_schedule.py  # This syncs TO sheets, not FROM
 ```
 
-**Content Schedule CSV:**
-```csv
-primary_key,status,week,date_range,theme,date,type,category,description,caption,hashtags,call_to_action,tools
-a1b2c3d4,,Week 1,Sep 29-Oct 5,Fall Harvest Tease,Mon Sep 29,Reel,Behind-the-Scenes,Quick clip...,As fall arrives...,#cacao #cacaobeans...,Tag a friend...,Canva for thumbnail...
-e5f6g7h8,In Progress,Week 1,Sep 29-Oct 5,Fall Harvest Tease,Tue Sep 30,Reel,Regenerative Farming,Time-lapse...,Building back...,#cacao #cacaofarm...,What's your dream...,CapCut for edit...
+### Process DApp Remarks
+```bash
+cd physical_stores
+python3 process_dapp_remarks.py
 ```
 
-**Note**: The `primary_key` column is automatically managed by the sync script. The `status` column can be manually updated in Google Sheets and will be preserved during sync.
+### Sync Content Schedules
+```bash
+# Instagram
+cd online_content/agroverse_shop/social_media
+python3 sync_content_schedule.py
+
+# Blog
+cd online_content/agroverse_shop/blog_post
+python3 sync_blog_schedule.py
+```
+
+### Process Feedback
+```bash
+cd online_content/agroverse_shop/social_media
+python3 sync_feedback.py download
+python3 process_feedback.py
+python3 sync_feedback.py upload
+```
+
+## 📚 Documentation
+
+Each subdirectory contains a comprehensive README.md that consolidates all relevant documentation:
+
+- **`physical_stores/README.md`** - Complete physical stores guide
+- **`online_content/agroverse_shop/social_media/README.md`** - Complete social media guide
+- **`online_content/agroverse_shop/blog_post/README.md`** - Complete blog guide
+- **`online_content/truesight_dao/blog_post/README.md`** - Truesight DAO blog guide
 
 ## 🔐 Security Notes
 
 - `google_credentials.json` is in `.gitignore` and should never be committed
 - Keep your Google Sheets API credentials secure
-- Only share the Google Sheets document with necessary team members
+- Only share the Google Sheets documents with necessary team members
 - The service account should have minimal required permissions
 
 ## 🐛 Troubleshooting
@@ -357,36 +210,39 @@ e5f6g7h8,In Progress,Week 1,Sep 29-Oct 5,Fall Harvest Tease,Tue Sep 30,Reel,Rege
 ### Common Issues
 
 1. **"google_credentials.json not found"**
-   - Ensure the credentials file is in the correct directory
+   - Ensure the credentials file is in the repository root
    - Check file permissions
 
 2. **"Permission denied" errors**
-   - Verify the service account has access to the Google Sheets document
+   - Verify the service account has access to the Google Sheets documents
    - Check API permissions in Google Cloud Console
 
 3. **"Worksheet not found"**
-   - Ensure worksheet names match exactly: "Content schedule" and "Hashtag suggestions"
-   - Check if worksheets exist in the Google Sheets document
+   - Ensure worksheet names match exactly
+   - Check if worksheets exist in the Google Sheets documents
 
-### Getting Help
-
-1. Check the console output for detailed error messages
-2. Verify your CSV file format matches the expected structure
-3. Ensure all dependencies are installed correctly
+4. **Status not preserved**
+   - Check if primary key changed due to content modifications
+   - Verify primary key generation logic
 
 ## 📈 Usage Tips
 
-1. **Regular Syncs**: Run sync scripts after updating CSV files
-2. **Backup**: Keep local copies of your CSV files
-3. **Version Control**: Commit CSV changes to track updates
-4. **Testing**: Test syncs with small data sets first
+1. **Regular Syncs** - Run sync scripts after updating CSV files
+2. **Backup** - Keep local copies of your CSV files
+3. **Version Control** - Commit CSV changes to track updates
+4. **Testing** - Test syncs with small data sets first
+5. **Documentation** - Refer to subdirectory READMEs for detailed guides
 
 ## 🔗 Links
 
-- [Google Sheets Document](https://docs.google.com/spreadsheets/d/1ghZXeMqFq97Vl6yLKrtDmMQdQkd-4EN5yQs34NA_sBQ/edit?gid=1682511679#gid=1682511679)
+- **GitHub Repository**: [TrueSightDAO/go_to_market](https://github.com/TrueSightDAO/go_to_market)
+- [Physical Stores Hit List](https://docs.google.com/spreadsheets/d/1eiqZr3LW-qEI6Hmy0Vrur_8flbRwxwA7jXVrbUnHbvc/edit)
+- [Content Marketing Schedule](https://docs.google.com/spreadsheets/d/1ghZXeMqFq97Vl6yLKrtDmMQdQkd-4EN5yQs34NA_sBQ/edit)
 - [Google Cloud Console](https://console.cloud.google.com/)
 - [Google Sheets API Documentation](https://developers.google.com/sheets/api)
 
 ---
 
-*Last updated: January 2025*
+*Last updated: November 2025*
+*This repository is organized by functional area for easy navigation and maintenance*
+*GitHub: [TrueSightDAO/go_to_market](https://github.com/TrueSightDAO/go_to_market)*

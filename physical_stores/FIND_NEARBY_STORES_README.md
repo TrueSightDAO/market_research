@@ -176,5 +176,5 @@ const SHEET_NAME = "Hit List";
 
 ---
 
-**Repository**: [market_research](https://github.com/TrueSightDAO/market_research)
+**Repository**: [TrueSightDAO/go_to_market](https://github.com/TrueSightDAO/go_to_market)
 

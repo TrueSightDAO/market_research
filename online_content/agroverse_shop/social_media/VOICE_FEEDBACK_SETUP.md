@@ -246,6 +246,6 @@ Having issues? Check:
 2. iPhone Shortcuts debug mode (tap ⓘ on shortcut)
 3. Google Sheet permissions
 
-**Repository**: [market_research](https://github.com/TrueSightDAO/market_research)  
+**Repository**: [TrueSightDAO/go_to_market](https://github.com/TrueSightDAO/go_to_market)  
 **Spreadsheet**: [Content Marketing Schedule](https://docs.google.com/spreadsheets/d/1ghZXeMqFq97Vl6yLKrtDmMQdQkd-4EN5yQs34NA_sBQ)
 
