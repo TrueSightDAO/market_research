@@ -152,6 +152,8 @@ function findNearbyStores(userLat, userLng, limit, statusFilter) {
     const headers = data[0];
     const shopNameIdx = headers.indexOf("Shop Name");
     const statusIdx = headers.indexOf("Status");
+    const salesNotesIdx = headers.indexOf("Sales Process Notes");
+    const salesNotesIdx = headers.indexOf("Sales Process Notes");
     const addressIdx = headers.indexOf("Address");
     const cityIdx = headers.indexOf("City");
     const stateIdx = headers.indexOf("State");
@@ -172,7 +174,6 @@ function findNearbyStores(userLat, userLng, limit, statusFilter) {
     const followUpEventLinkIdx = headers.indexOf("Follow Up Event Link");
     const visitDateIdx = headers.indexOf("Visit Date");
     const outcomeIdx = headers.indexOf("Outcome");
-    const salesNotesIdx = headers.indexOf("Sales Process Notes");
     const latIdx = headers.indexOf("Latitude");
     const lngIdx = headers.indexOf("Longitude");
     
@@ -305,8 +306,17 @@ function logDappSubmission_(spreadsheet, shopName, status, remarks, submittedBy,
   const sheet = ensureDappRemarksSheet_(spreadsheet);
   const submissionId = Utilities.getUuid();
   const submittedAt = new Date();
-  const processedFlag = processed ? 'Yes' : 'No';
-  const processedAt = processed ? submittedAt : '';
+  let processedFlag;
+  let processedAt = '';
+
+  if (processed === true) {
+    processedFlag = 'Yes';
+    processedAt = submittedAt;
+  } else if (processed === null) {
+    processedFlag = 'Status Applied';
+  } else {
+    processedFlag = 'No';
+  }
   sheet.appendRow([
     submissionId,
     shopName || '',
@@ -381,13 +391,24 @@ function updateStoreStatus(shopName, newStatus, digitalSignature, remarks, submi
         sheet.getRange(rowNum, statusIdx + 1).setValue(newStatus);
         
         // Update digital signature (public key)
-        if (digitalSignature) {
-          sheet.getRange(rowNum, statusUpdatedByIdx + 1).setValue(digitalSignature);
+        const submittedValue = digitalSignature || submittedBy || "";
+        if (submittedValue) {
+          sheet.getRange(rowNum, statusUpdatedByIdx + 1).setValue(submittedValue);
         }
         
         // Update timestamp
         const timestamp = new Date();
         sheet.getRange(rowNum, statusUpdatedDateIdx + 1).setValue(timestamp);
+        
+        // Append remarks into Sales Process Notes
+        if (remarks && salesNotesIdx !== -1) {
+          const noteRange = sheet.getRange(rowNum, salesNotesIdx + 1);
+          const existingNotes = noteRange.getValue();
+          const timestampIso = timestamp.toISOString();
+          const noteLine = `[${timestampIso} | ${submittedValue || "DApp"}] ${remarks}`;
+          const updatedNotes = existingNotes ? `${existingNotes}\n\n${noteLine}` : noteLine;
+          noteRange.setValue(updatedNotes);
+        }
         
         found = true;
         Logger.log(`Updated status for "${shopName}" to "${newStatus}" by ${digitalSignature || "unknown"}`);
@@ -399,7 +420,7 @@ function updateStoreStatus(shopName, newStatus, digitalSignature, remarks, submi
       throw new Error(`Shop "${shopName}" not found`);
     }
 
-    const submissionId = logDappSubmission_(spreadsheet, shopName, newStatus, remarks, digitalSignature || submittedBy, false);                                
+    const submissionId = logDappSubmission_(spreadsheet, shopName, newStatus, remarks, digitalSignature || submittedBy, null);                                
     
     return {
       success: true,
