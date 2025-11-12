@@ -153,7 +153,6 @@ function findNearbyStores(userLat, userLng, limit, statusFilter) {
     const shopNameIdx = headers.indexOf("Shop Name");
     const statusIdx = headers.indexOf("Status");
     const salesNotesIdx = headers.indexOf("Sales Process Notes");
-    const salesNotesIdx = headers.indexOf("Sales Process Notes");
     const addressIdx = headers.indexOf("Address");
     const cityIdx = headers.indexOf("City");
     const stateIdx = headers.indexOf("State");
@@ -356,6 +355,7 @@ function updateStoreStatus(shopName, newStatus, digitalSignature, remarks, submi
     const headers = data[0];
     const shopNameIdx = headers.indexOf("Shop Name");
     const statusIdx = headers.indexOf("Status");
+    const salesNotesIdx = headers.indexOf("Sales Process Notes");
     
     // Find or create "Status Updated By" column
     let statusUpdatedByIdx = headers.indexOf("Status Updated By");
