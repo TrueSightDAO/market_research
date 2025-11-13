@@ -121,6 +121,40 @@ function toRad(degrees) {
 }
 
 /**
+ * Normalize a string for use in store keys.
+ * @param {string} value
+ * @return {string}
+ */
+function normalizeForKey_(value) {
+  if (!value) {
+    return '';
+  }
+  return String(value)
+    .trim()
+    .toLowerCase()
+    .replace(/\s+/g, '-')
+    .replace(/[^a-z0-9\-]/g, '');
+}
+
+/**
+ * Create a deterministic key for a store based on its core address fields.
+ * @param {string} name
+ * @param {string} address
+ * @param {string} city
+ * @param {string} state
+ * @return {string}
+ */
+function createStoreKey_(name, address, city, state) {
+  const parts = [
+    normalizeForKey_(name),
+    normalizeForKey_(address),
+    normalizeForKey_(city),
+    normalizeForKey_(state)
+  ].filter(Boolean);
+  return parts.join('__');
+}
+
+/**
  * Find nearby stores from the spreadsheet
  * @param {number} userLat - User's latitude
  * @param {number} userLng - User's longitude
@@ -440,16 +474,74 @@ function addNewStore(storeData) {
     throw new Error(`Sheet "${SHEET_NAME}" not found`);
   }
 
-  const data = sheet.getDataRange().getValues();
+  let data = sheet.getDataRange().getValues();
   if (!data || data.length === 0) {
     throw new Error(`Sheet "${SHEET_NAME}" does not have a header row.`);
   }
 
-  const headers = data[0];
+  let headers = data[0];
+  if (headers.indexOf('Store Key') === -1) {
+    sheet.getRange(1, headers.length + 1).setValue('Store Key');
+    data = sheet.getDataRange().getValues();
+    headers = data[0];
+  }
+
   const headerIndex = {};
   headers.forEach((header, idx) => {
     headerIndex[header] = idx;
   });
+
+  const storeKeyIdx = headerIndex['Store Key'];
+  const shopNameIdx = headerIndex['Shop Name'];
+  const addressIdx = headerIndex['Address'];
+  const cityIdx = headerIndex['City'];
+  const stateIdx = headerIndex['State'];
+  const statusIdx = headerIndex['Status'];
+
+  if (shopNameIdx === undefined || shopNameIdx === -1) {
+    throw new Error('Required column "Shop Name" not found in sheet.');
+  }
+
+  const storeKey = createStoreKey_(storeData.shopName, storeData.address, storeData.city, storeData.state);
+  if (!storeKey) {
+    return {
+      success: false,
+      error: 'Missing required fields to determine uniqueness',
+      message: 'Shop name and at least one of address, city, or state are required.'
+    };
+  }
+
+  for (let i = 1; i < data.length; i++) {
+    const row = data[i];
+    const rowShopName = row[shopNameIdx];
+
+    if (!rowShopName) {
+      continue;
+    }
+
+    const existingKeyFromColumn = storeKeyIdx >= 0 ? row[storeKeyIdx] : '';
+    const fallbackKey = createStoreKey_(rowShopName, addressIdx >= 0 ? row[addressIdx] : '', cityIdx >= 0 ? row[cityIdx] : '', stateIdx >= 0 ? row[stateIdx] : '');
+    const normalizedExistingKey = (existingKeyFromColumn || fallbackKey || '').toLowerCase();
+
+    if (!existingKeyFromColumn && fallbackKey && storeKeyIdx >= 0) {
+      sheet.getRange(i + 1, storeKeyIdx + 1).setValue(fallbackKey);
+    }
+
+    if (normalizedExistingKey && normalizedExistingKey === storeKey.toLowerCase()) {
+      const existingStatus = statusIdx >= 0 ? (row[statusIdx] || '') : '';
+      return {
+        success: false,
+        duplicate: true,
+        message: `Store "${rowShopName}" is already on the hit list.`,
+        error: 'Duplicate store detected',
+        existingStore: {
+          shopName: rowShopName,
+          status: existingStatus,
+          rowNumber: i + 1
+        }
+      };
+    }
+  }
 
   const row = new Array(headers.length).fill('');
   function setValue(header, value) {
@@ -489,6 +581,7 @@ function addNewStore(storeData) {
   setValue('Contact Method', storeData.contactMethod || '');
   setValue('Status Updated By', submittedBy);
   setValue('Status Updated Date', now);
+  setValue('Store Key', storeKey);
 
   sheet.appendRow(row);
 
@@ -542,11 +635,23 @@ function doGet(e) {
       storeData.salesNotes = salesNotes;
 
       const result = addNewStore(storeData);
+      if (result.success) {
+        return ContentService
+          .createTextOutput(JSON.stringify({
+            success: true,
+            message: result.message,
+            submission_id: result.submissionId || ''
+          }))
+          .setMimeType(ContentService.MimeType.JSON);
+      }
+
       return ContentService
         .createTextOutput(JSON.stringify({
-          success: true,
-          message: result.message,
-          submission_id: result.submissionId || ''
+          success: false,
+          error: result.error || 'Unable to add store',
+          message: result.message || '',
+          duplicate: !!result.duplicate,
+          existing_store: result.existingStore || null
         }))
         .setMimeType(ContentService.MimeType.JSON);
     }

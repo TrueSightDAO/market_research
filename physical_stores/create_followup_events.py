@@ -17,6 +17,7 @@ from __future__ import annotations
 import os
 import re
 from datetime import datetime, time, timedelta
+from pathlib import Path
 import hashlib
 from typing import Optional, Tuple
 
@@ -30,7 +31,8 @@ from zoneinfo import ZoneInfo
 
 SPREADSHEET_ID = "1eiqZr3LW-qEI6Hmy0Vrur_8flbRwxwA7jXVrbUnHbvc"
 SHEET_NAME = "Hit List"
-SERVICE_ACCOUNT_FILE = "google_credentials.json"
+# Look for credentials in parent directory (repository root)
+SERVICE_ACCOUNT_FILE = str(Path(__file__).parent.parent / "google_credentials.json")
 
 # Scopes cover both Sheets and Calendar APIs
 SCOPES = [
